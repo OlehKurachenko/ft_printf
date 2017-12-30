@@ -80,4 +80,4 @@ add_executable(ft_printf_clion
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        testmain/testmain.c)
+        testmain/testmain.c libftprintf/ft_printf.h libftprintf/ft_printf.c)
