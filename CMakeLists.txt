@@ -3,6 +3,8 @@ project(ft_printf_clion)
 
 set(CMAKE_CXX_STANDARD 11)
 
+set(CMAKE_C_COMPILER gcc)
+
 add_executable(ft_printf_clion
         libft/ft_atoi.c
         libft/ft_bzero.c
@@ -80,4 +82,4 @@ add_executable(ft_printf_clion
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        testmain/testmain.c libftprintf/ft_printf.h libftprintf/ft_printf.c)
+        testmain/testmain.c libftprintf/ft_printf.h libftprintf/ft_printf.c libftprintf/ftprt_set_flags.c)

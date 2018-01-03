@@ -7,9 +7,19 @@
 
 # include "../libft/libft.h"
 
+# include <stdarg.h>
+
+// TODO write code comments
+
+/*
+**
+**
+**	TYPE:
+**		0: wrong flag
+**/
+
 typedef struct	s_printff
 {
-	unsigned char	is_ordered;
 	unsigned char	flags[4];
 	size_t			width;
 	size_t 			precision;
@@ -18,5 +28,7 @@ typedef struct	s_printff
 }				t_printff;
 
 int 			ft_printf(const char *format, ...);
+
+const char		*ftprt_set_flags(t_printff *fl, const char *pos);
 
 #endif
