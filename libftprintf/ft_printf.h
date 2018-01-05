@@ -20,8 +20,27 @@
 **		4: ''' flag
 **		5: '+' flag
 **
+**  WIDTH:
+**      number from 0 to +inf
+**
+**  PRECISION:
+**      number from 0 to +inf if exist
+**      number = -1 if no precision
+**
+**	LEN FLAG:
+**		NULL:	-1
+**		ll:		0
+**		l:		1
+**		hh: 	2
+**		h:		3
+**		j:		4
+**		z:		5
+**		L:		6
+**
 **	TYPE:
-**		0: not a flag
+**		-1: not a flag
+** 		0: type not defined
+** 		"%sSpdDioOuUxXcCeEfFgGaAnbrk": conversions
 **
 */
 
@@ -31,7 +50,7 @@ typedef struct	s_printff
 	size_t			width;
 	long long 		precision;
 	int				len_flag;
-	unsigned char	type;
+	char			type;
 }				t_printff;
 
 int 			ft_printf(const char *format, ...);
@@ -41,6 +60,8 @@ int 			ft_printf(const char *format, ...);
 */
 
 const char		*ftprt_set_flags(t_printff *fl, const char *pos);
+
+const char      *ftprt_set_type(t_printff *fl, const char *pos);
 
 /*
 **  OUTPUT SECTION
