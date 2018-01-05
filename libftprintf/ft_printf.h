@@ -12,23 +12,44 @@
 // TODO write code comments
 
 /*
-**
+**	FLAGS:
+**		0: '#' flag
+**		1: '0' flag
+**		2: '-' flag
+**		3: ' ' flag
+**		4: ''' flag
+**		5: '+' flag
 **
 **	TYPE:
-**		0: wrong flag
-**/
+**		0: not a flag
+**
+*/
 
 typedef struct	s_printff
 {
-	unsigned char	flags[4];
+	unsigned char	flags[6];
 	size_t			width;
-	size_t 			precision;
-	unsigned char	len_flag;
+	long long 		precision;
+	int				len_flag;
 	unsigned char	type;
 }				t_printff;
 
 int 			ft_printf(const char *format, ...);
 
+/*
+**	FLAG MANAGMENT
+*/
+
 const char		*ftprt_set_flags(t_printff *fl, const char *pos);
+
+/*
+**  OUTPUT SECTION
+*/
+
+unsigned char   ftprt_highest_byte(size_t val);
+
+size_t      ft_putwchar(unsigned int c);
+
+size_t      ft_putwchar_lim(unsigned int c, size_t *lim);
 
 #endif

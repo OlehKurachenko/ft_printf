@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include "../libftprintf/ft_printf.h"
 
 //void test_va(const char *r, ...)
 //{
@@ -25,13 +26,22 @@ int     main()
 
     setlocale(LC_ALL, "");
 
-	int 	    i;
+	int 	    i = 14248;
+    size_t      lim = 4;
 	wchar_t	    a[] = L"ϏϏϏ";
 	char        b[] = "d;dϏsi";
     char        *c = b;
     wchar_t     *d = a;
 
-	i = printf("%.3S\n", a);
+//	printf("%C\n", i);
+//    //printf("%d\n", i);
+//
+//    ft_putwchar(i);
+//    ft_putwchar_lim(i, &lim);
+
+    printf("|%'d|\n", 12345678);
+    //printf("%s\n", "\'\'\'");
+    //printf("|%d|", *(localeconv()->thousands_sep));
 
     return (0);
 }
