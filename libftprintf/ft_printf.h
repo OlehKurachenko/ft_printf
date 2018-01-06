@@ -38,39 +38,55 @@
 **		L:		6
 **
 **	TYPE:
-**		-1: not a flag
-** 		0: type not defined
-** 		"%sSpdDioOuUxXcCeEfFgGaAnbrk": conversions
+**		-1:		not a flag
+** 		28:		type not defined
+** 		0..27:	"%sSpdDioOuUxXcCeEfFgGaAnbrk"
+ * 				conversions
 **
 */
 
-typedef struct	s_printff
+typedef struct	    s_printff
 {
 	unsigned char	flags[6];
 	size_t			width;
 	long long 		precision;
 	int				len_flag;
 	char			type;
-}				t_printff;
+}				    t_printff;
 
-int 			ft_printf(const char *format, ...);
+/*
+**  TYPE MAP
+*/
+
+typedef void        (*t_type_proc)(t_printff *,va_list *, int *);
+
+const size_t        g_types_n;
+
+const t_type_proc   g_type_map[];
+
+int 			    ft_printf(const char *format, ...);
+
+int                 ft_va_printf(const char *format, va_list *arg);
 
 /*
 **	FLAG MANAGMENT
 */
 
-const char		*ftprt_set_flags(t_printff *fl, const char *pos);
+const char		    *ftprt_set_flags(t_printff *fl, const char *pos);
 
-const char      *ftprt_set_type(t_printff *fl, const char *pos);
+const char          *ftprt_set_type(t_printff *fl, const char *pos);
 
 /*
 **  OUTPUT SECTION
 */
 
-unsigned char   ftprt_highest_byte(size_t val);
+unsigned char       ftprt_highest_byte(size_t val);
 
-size_t      ft_putwchar(unsigned int c);
+size_t              ft_putwchar(unsigned int c);
 
-size_t      ft_putwchar_lim(unsigned int c, size_t *lim);
+size_t              ft_putwchar_lim(unsigned int c, size_t *lim);
+
+void        ftprt_put_dblpercent(t_printff *fl, va_list *arg, int *nprt);
+
 
 #endif

@@ -1,23 +1,24 @@
 #include "ft_printf.h"
 
-int 		ft_printf(const char *format, ...)
-{
-	t_printff		fl;
-    va_list         vl;
-    const char      *pos = format;
+const size_t        g_types_n = 27;
 
-    va_start(vl, format);
+const t_type_proc   g_type_map[] =
+		{
+			&ftprt_put_dblpercent
+		};
+
+int 		        ft_printf(const char *format, ...)
+{
+	va_list                     vl;
+	int                         res;
+
+	va_start(vl, format);
 	// TODO:	check is a format string manually ordered, if yes - call
 	//			ft_lv_orderprintf
 	//ft_lv_orderprintf();
+	// TODO correct error exit & call
 
-    // TODO correct error exit & call
-    pos = ftprt_set_flags(&fl, pos);
-    //while () {
-        // TODO write
-    //}
-
-    // TODO write
-
-    va_end(vl);
+	res = ft_va_printf(format, &vl);
+	va_end(vl);
+	return (res);
 }
