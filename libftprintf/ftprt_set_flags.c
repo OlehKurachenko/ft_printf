@@ -4,7 +4,7 @@ static const char	*set_flags(t_printff *fl, const char *pos)
 {
 	ft_memset(fl->flags, 0, 4);
 	while (*pos == ' ' || *pos == '-' || *pos == '+'
-		   || *pos == '#' || *pos == '0' || *pos == '*')
+		   || *pos == '#' || *pos == '0' || *pos == '\'')
 	{
 		if (*pos == ' ' && !fl->flags[5])
 			fl->flags[3] = 1;
@@ -29,9 +29,25 @@ static const char	*set_flags(t_printff *fl, const char *pos)
 	return (pos);
 }
 
-static const char	*set_width(t_printff *fl, const char *pos)
+/*
+** fl->len_flag used as temporary variable
+*/
+static const char	*set_width(t_printff *fl, const char *pos, va_list *arg)
 {
 	fl->width = 0;
+	if (*pos == '*')
+	{
+		fl->len_flag = va_arg(*arg, int);
+		if (fl->len_flag < 0)
+		{
+			fl->flags[1] = 0;
+			fl->flags[2] = 1;
+			fl->width = (size_t)-fl->len_flag;
+		}
+		else
+			fl->width = (size_t)fl->len_flag;
+		return (pos + 1);
+	}
 	while (ft_isdigit(*pos))
 	{
 		fl->width *= 10;
@@ -41,12 +57,25 @@ static const char	*set_width(t_printff *fl, const char *pos)
 	return (pos);
 }
 
-static const char   *set_precision(t_printff *fl, const char *pos)
+/*
+** fl->len_flag used as temporary variable
+*/
+static const char   *set_precision(t_printff *fl, const char *pos,
+								   va_list *arg)
 {
 	if (*pos == '.')
 	{
 		fl->precision = 0;
 		++pos;
+		if (*pos == '*')
+		{
+			fl->len_flag = va_arg(*arg, int);
+			if (fl->len_flag >= 0)
+				fl->precision = fl->len_flag;
+			else
+				fl->precision = -1;
+            return (pos + 1);
+		}
 		while (ft_isdigit(*pos))
 		{
 			fl->precision *= 10;
@@ -80,7 +109,7 @@ static const char	*set_len_flag(t_printff *fl,
 	return (pos);
 }
 
-const char			*ftprt_set_flags(t_printff *fl, const char *pos)
+const char			*ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg)
 {
 	if (*pos != '%')
 	{
@@ -89,10 +118,8 @@ const char			*ftprt_set_flags(t_printff *fl, const char *pos)
 	}
 	++pos;
 	pos = set_flags(fl, pos);
-	// TODO handle * in width
-	pos = set_width(fl, pos);
-	// TODO handle * in precision
-	pos = set_precision(fl, pos);
+	pos = set_width(fl, pos, arg);
+	pos = set_precision(fl, pos, arg);
 	pos = set_len_flag(fl, pos);
 	pos = ftprt_set_type(fl, pos);
 	return (pos);

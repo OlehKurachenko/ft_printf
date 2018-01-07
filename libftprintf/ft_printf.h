@@ -70,7 +70,7 @@ int                 ft_va_printf(const char *format, va_list *arg, t_putchar f_p
 **	FLAG MANAGMENT
 */
 
-const char		    *ftprt_set_flags(t_printff *fl, const char *pos);
+const char		    *ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg);
 
 const char          *ftprt_set_type(t_printff *fl, const char *pos);
 

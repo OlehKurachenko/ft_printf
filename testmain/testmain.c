@@ -64,8 +64,8 @@ int     main()
     //printf("|%10.3s|", "1234");
     int res_p, res_ftp;
 
-    res_p = printf("|%7.5ls|\n", a);
-    res_ftp = ft_printf("|%7.5ls|\n", a);
+    res_p = printf("|%*.*ls|\n", -5, 4, a);
+    res_ftp = ft_printf("|%*.*ls|\n", -5, 4, a);
     printf("%d %d\n", res_p, res_ftp);
 
 

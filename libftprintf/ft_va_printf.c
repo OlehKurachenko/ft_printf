@@ -11,7 +11,7 @@ int     ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar)
 	while (*pos)
 	{
 		prev_pos = pos;
-		pos = ftprt_set_flags(&fl, pos);
+		pos = ftprt_set_flags(&fl, pos, arg);
 		if (fl.type == -1)
 		{
 			f_putchar(*(pos++));
