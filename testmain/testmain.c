@@ -38,16 +38,17 @@ int     main()
 //    TESTING VA
 	//test_va("123454534", 34, 45, 56, 76);
 
-//    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "");
 //
 //	int 	    i = 14248;
 //    size_t      lim = 4;
-//	wchar_t	    a[] = L"ϏϏϏ";
+	wchar_t	    a[] = L"ϏϏϏ";
 //	char        b[] = "d;dϏsi";
 //    char        *c = b;
 //    wchar_t     *d = a;
+    wchar_t     yy[] = {945, 14248, 0};
 //
-//    test_va("123", 111, 222, 333);
+    //test_va("123");
 
 //	printf("%C\n", i);
 //    //printf("%d\n", i);
@@ -60,7 +61,8 @@ int     main()
     //printf("|%d|", *(localeconv()->thousands_sep));
 
     //ft_printf("%%sdfsd%%\n");
-    printf("|%-10s|", "1234");
+    //printf("|%10.3s|", "1234");
+    printf("|%5.5ls|", a);
 
     return (0);
 }

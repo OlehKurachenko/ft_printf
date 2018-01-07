@@ -82,4 +82,4 @@ add_executable(ft_printf_clion
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        testmain/testmain.c libftprintf/ft_printf.h libftprintf/ft_printf.c libftprintf/ftprt_set_flags.c libftprintf/ftprt_highest_byte.c libftprintf/ftprt_putwchar.c libftprintf/ftprt_set_type.c libftprintf/ft_va_printf.c libftprintf/ftprt_put_dblpercent.c)
+        testmain/testmain.c libftprintf/ft_printf.h libftprintf/ft_printf.c libftprintf/ftprt_set_flags.c libftprintf/ftprt_highest_byte.c libftprintf/ftprt_putwchar.c libftprintf/ftprt_set_type.c libftprintf/ft_va_printf.c libftprintf/ftprt_put_dblpercent.c libftprintf/ftprt_put_s.c libftprintf/ft_putnchar.c)

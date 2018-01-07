@@ -86,7 +86,9 @@ size_t              ft_putwchar(unsigned int c);
 
 size_t              ft_putwchar_lim(unsigned int c, size_t *lim);
 
-void        ftprt_put_dblpercent(t_printff *fl, va_list *arg, int *nprt);
+void                ft_putnchar(char c, size_t n);
+
+void                ftprt_put_dblpercent(t_printff *fl, va_list *arg, int *nprt);
 
 
 #endif
