@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int     ft_va_printf(const char *format, va_list *arg)
+int     ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar)
 {
 	t_printff		fl;
 	const char      *pos = format;
@@ -14,12 +14,12 @@ int     ft_va_printf(const char *format, va_list *arg)
 		pos = ftprt_set_flags(&fl, pos);
 		if (fl.type == -1)
 		{
-			ft_putchar(*(pos++));
+			f_putchar(*(pos++));
 			++res;
 		}
 		else
 			if (fl.type != 28)
-				g_type_map[fl.type](&fl, arg, &res);
+				g_type_map[fl.type](&fl, arg, &res, f_putchar);
 			else
 			{
 				// TODO printf incorrect flag

@@ -4,34 +4,32 @@
 #include <locale.h>
 #include "../libftprintf/ft_printf.h"
 
-void test_va2(t_printff *fll, va_list *arg, int *i)
-{
-    printf("2: %d\n", va_arg(*arg, int));
-}
-
-void test_va3(t_printff *fll, va_list *arg, int *i)
-{
-    printf("3: %d\n", va_arg(*arg, int));
-}
-
-
-void test_va(const char *r, ...)
-{
-	va_list     arg;
-    int 	    temp;
-    t_type_proc a[2];
-
-    a[0] = &test_va2;
-    a[1] = &test_va3;
-
-	va_start(arg, r);
-    temp = va_arg(arg, int);
-	printf("1: %d\n", temp);
-    a[0](NULL, arg, NULL);
-    a[1](NULL, arg, NULL);
-
-	va_end(arg);
-}
+//void test_va2(t_printff *fll, va_list *arg, int *i)
+//{
+//    printf("2: %d\n", va_arg(*arg, int));
+//}
+//
+//void test_va3(t_printff *fll, va_list *arg, int *i)
+//{
+//    printf("3: %d\n", va_arg(*arg, int));
+//}
+//
+//
+//void test_va(const char *r, ...)
+//{
+//	va_list     arg;
+//    int 	    temp;
+//    t_type_proc a[2];
+//
+//    a[0] = &test_va2;
+//    a[1] = &test_va3;
+//
+//	va_start(arg, r);
+//    temp = va_arg(arg, int);
+//	printf("1: %d\n", temp);
+//
+//	va_end(arg);
+//}
 
 int     main()
 {
@@ -60,9 +58,9 @@ int     main()
     //printf("%s\n", "\'\'\'");
     //printf("|%d|", *(localeconv()->thousands_sep));
 
-    //ft_printf("%%sdfsd%%\n");
+    ft_printf("%%sdfsd%%\n");
     //printf("|%10.3s|", "1234");
-    printf("|%5.5ls|", a);
+    //printf("|%5.5ls|", a);
 
     return (0);
 }

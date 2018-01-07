@@ -18,7 +18,7 @@ int 		        ft_printf(const char *format, ...)
 	//ft_lv_orderprintf();
 	// TODO correct error exit & call
 
-	res = ft_va_printf(format, &vl);
+	res = ft_va_printf(format, &vl, &ft_putchar);
 	va_end(vl);
 	return (res);
 }
