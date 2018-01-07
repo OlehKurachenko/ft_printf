@@ -4,7 +4,9 @@ const size_t        g_types_n = 27;
 
 const t_type_proc   g_type_map[] =
 		{
-			&ftprt_put_dblpercent
+			&ftprt_put_dblpercent,
+			&ftprt_put_s,
+			&ftprt_put_ss
 		};
 
 int 		        ft_printf(const char *format, ...)

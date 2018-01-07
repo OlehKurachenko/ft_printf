@@ -21,7 +21,7 @@ static void put_4_char_wchar(unsigned int c, t_putchar f_putchar)
 	f_putchar((char)((1 << 7) ^ (c & ((1 << 6) - 1))));
 }
 
-size_t      ft_putwchar(unsigned int c, t_putchar f_putchar)
+size_t      ftprt_putwchar(unsigned int c, t_putchar f_putchar)
 {
 	const unsigned char hb = ftprt_highest_byte(c);
 
@@ -44,7 +44,7 @@ size_t      ft_putwchar(unsigned int c, t_putchar f_putchar)
 	return (4);
 }
 
-size_t      ft_putwchar_lim(unsigned int c, size_t *lim, t_putchar f_putchar)
+size_t      ftprt_putwchar_lim(unsigned int c, size_t *lim, t_putchar f_putchar)
 {
 	const unsigned char hb = ftprt_highest_byte(c);
 

@@ -58,9 +58,18 @@ int     main()
     //printf("%s\n", "\'\'\'");
     //printf("|%d|", *(localeconv()->thousands_sep));
 
-    ft_printf("%%sdfsd%%\n");
+    char *test_s = "abbabbab";
+
+    //ft_printf("%%sd|%-9.5s|fsd%%\n", test_s);
     //printf("|%10.3s|", "1234");
-    //printf("|%5.5ls|", a);
+    int res_p, res_ftp;
+
+    res_p = printf("|%7.5ls|\n", a);
+    res_ftp = ft_printf("|%7.5ls|\n", a);
+    printf("%d %d\n", res_p, res_ftp);
+
+
+    //printf("|%*.0d|\n", -5, 123);
 
     return (0);
 }

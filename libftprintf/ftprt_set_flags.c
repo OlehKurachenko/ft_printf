@@ -89,7 +89,9 @@ const char			*ftprt_set_flags(t_printff *fl, const char *pos)
 	}
 	++pos;
 	pos = set_flags(fl, pos);
+	// TODO handle * in width
 	pos = set_width(fl, pos);
+	// TODO handle * in precision
 	pos = set_precision(fl, pos);
 	pos = set_len_flag(fl, pos);
 	pos = ftprt_set_type(fl, pos);
