@@ -1,8 +1,6 @@
 #include "ft_printf.h"
 
-const size_t        g_types_n = 27;
-
-const t_type_proc   g_type_map[] =
+const t_type_proc   g_type_map[CONV_TYPE_NUMB] =
 		{
 			&ftprt_put_dblpercent,
 			&ftprt_put_s,

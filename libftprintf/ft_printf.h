@@ -6,6 +6,8 @@
 # include <stdarg.h>
 # include <stdint.h>
 
+# define CONV_TYPE_NUMB 27
+
 // TODO write code comments
 
 /*
@@ -59,9 +61,7 @@ typedef struct	    s_printff
 
 typedef void        (*t_type_proc)(t_printff *,va_list *, int *, t_putchar);
 
-const size_t        g_types_n;
-
-const t_type_proc   g_type_map[];
+const t_type_proc   g_type_map[CONV_TYPE_NUMB];
 
 int 			    ft_printf(const char *format, ...);
 

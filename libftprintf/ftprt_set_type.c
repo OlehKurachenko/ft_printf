@@ -2,7 +2,8 @@
 
 const char      *ftprt_set_type(t_printff *fl, const char *pos)
 {
-	static const char   types[28] = "%sSpdDioOuUxXcCeEfFgGaAnbrk";
+	static const char   types[CONV_TYPE_NUMB + 1]
+			= "%sSpdDioOuUxXcCeEfFgGaAnbrk";
 
 	fl->type = (char)(ft_strchr(types, *pos) - types);
 	++pos;

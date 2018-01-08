@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 
-static size_t   count_putput_len(unsigned int *s, size_t precision, size_t *num_val)
+static size_t   count_putput_len(const unsigned int *s, size_t precision,
+								 size_t *num_val)
 {
 	static size_t   size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
 								3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
