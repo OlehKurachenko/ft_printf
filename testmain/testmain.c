@@ -68,7 +68,18 @@ int     main()
     //res_ftp = ft_printf("|%*.*ls|\n", -5, 4, a);
     //printf("%d %d\n", res_p, res_ftp);
 
-    printf("%1$Ld %1$d", -1);
+//    int ttint = -2147483648;
+//    unsigned int uuint = -ttint;
+
+    char fstr[] = "|%- +08.5lld|\n";
+    long long ivalue = 0;
+//    char fstr[] = "|%+0.0lld|\n";
+//    long long ivalue = 0;
+
+    res_p = printf(fstr, ivalue);
+    res_ftp = ft_printf(fstr, ivalue);
+    printf("%d %d\n", res_p, res_ftp);
+
 
 
     //printf("|%*.0d|\n", -5, 123);

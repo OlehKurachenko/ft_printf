@@ -6,7 +6,9 @@ const t_type_proc   g_type_map[] =
 		{
 			&ftprt_put_dblpercent,
 			&ftprt_put_s,
-			&ftprt_put_ss
+			&ftprt_put_ss,
+            NULL, // TODO replace with 'p'
+            &ftprt_put_d
 		};
 
 int 		        ft_printf(const char *format, ...)
