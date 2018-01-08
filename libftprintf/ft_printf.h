@@ -98,8 +98,8 @@ void        		ftprt_put_s(t_printff *fl, va_list *arg, int *nptr,
 void            	ftprt_put_ss(t_printff *fl, va_list *arg, int *nptr,
 							 t_putchar f_putchar);
 
-unsigned char       ftprt_number_len(intmax_t val, unsigned char zero_to_one);
-
+unsigned char       ftprt_number_len(intmax_t val, unsigned char zero_to_one,
+                                     unsigned char is_apo);
 void                ftprt_put_number(intmax_t val, size_t len, t_printff *fl,
                              t_putchar f_putchar);
 

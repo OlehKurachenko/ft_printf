@@ -71,10 +71,14 @@ int     main()
 //    int ttint = -2147483648;
 //    unsigned int uuint = -ttint;
 
-    char fstr[] = "|%- +08.5lld|\n";
-    long long ivalue = 0;
+//    char fstr[] = "|%- +08.5lld|\n";
+//    long long ivalue = 0;
 //    char fstr[] = "|%+0.0lld|\n";
 //    long long ivalue = 0;
+    char fstr[] = "|%09lld|\n";
+    long long ivalue = -1234567;
+    //int iv = -4567;
+
 
     res_p = printf(fstr, ivalue);
     res_ftp = ft_printf(fstr, ivalue);
