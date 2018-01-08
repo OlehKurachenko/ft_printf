@@ -106,4 +106,7 @@ void                ftprt_put_number(intmax_t val, size_t len, t_printff *fl,
 void                ftprt_put_d(t_printff *fl, va_list *arg,
 								int *nprt, t_putchar f_putchar);
 
+void        		ftprt_put_dd(t_printff *fl, va_list *arg,
+						 int *nprt, t_putchar f_putchar);
+
 #endif

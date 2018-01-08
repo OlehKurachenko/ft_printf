@@ -8,7 +8,8 @@ const t_type_proc   g_type_map[] =
 			&ftprt_put_s,
 			&ftprt_put_ss,
             NULL, // TODO replace with 'p'
-            &ftprt_put_d
+            &ftprt_put_d,
+            &ftprt_put_dd
 		};
 
 int 		        ft_printf(const char *format, ...)
