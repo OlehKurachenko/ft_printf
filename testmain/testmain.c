@@ -64,9 +64,11 @@ int     main()
     //printf("|%10.3s|", "1234");
     int res_p, res_ftp;
 
-    res_p = printf("|%*.*ls|\n", -5, 4, a);
-    res_ftp = ft_printf("|%*.*ls|\n", -5, 4, a);
-    printf("%d %d\n", res_p, res_ftp);
+    //res_p = printf("|%*.*ls|\n", -5, 4, a);
+    //res_ftp = ft_printf("|%*.*ls|\n", -5, 4, a);
+    //printf("%d %d\n", res_p, res_ftp);
+
+    printf("%1$Ld %1$d", -1);
 
 
     //printf("|%*.0d|\n", -5, 123);
