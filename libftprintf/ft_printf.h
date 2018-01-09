@@ -40,7 +40,7 @@
 **		-1:		not a flag
 ** 		28:		type not defined
 ** 		0..27:	"%sSpdDioOuUxXcCeEfFgGaAnbrk"
- * 				conversions
+** 				conversions
 **
 */
 
@@ -108,5 +108,16 @@ void                ftprt_put_d(t_printff *fl, va_list *arg,
 
 void        		ftprt_put_dd(t_printff *fl, va_list *arg,
 						 int *nprt, t_putchar f_putchar);
+
+uintmax_t           ftprt_va_get_uvalue(t_printff *fl, va_list *arg);
+
+unsigned char       ftprt_unumber_len(uintmax_t val, unsigned char zero_to_one,
+									  unsigned char is_apo);
+
+void        		ftprt_put_unumber(uintmax_t val, size_t len, t_printff *fl,
+							  t_putchar f_putchar);
+
+void                ftprt_put_u(t_printff *fl, va_list *arg,
+                        int *nprt, t_putchar f_putchar);
 
 #endif

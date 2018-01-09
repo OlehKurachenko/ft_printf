@@ -64,9 +64,9 @@ int     main()
     //printf("|%10.3s|", "1234");
     int res_p, res_ftp;
 
-    //res_p = printf("|%*.*ls|\n", -5, 4, a);
-    //res_ftp = ft_printf("|%*.*ls|\n", -5, 4, a);
-    //printf("%d %d\n", res_p, res_ftp);
+//    res_p = printf("|%*.*ls|\n", -5, 5, a);
+//    res_ftp = ft_printf("|%*.*ls|\n", -5, 5, a);
+//    printf("%d %d\n", res_p, res_ftp);
 
 //    int ttint = -2147483648;
 //    unsigned int uuint = -ttint;
@@ -75,14 +75,18 @@ int     main()
 //    long long ivalue = 0;
 //    char fstr[] = "|%+0.0lld|\n";
 //    long long ivalue = 0;
-    char fstr[] = "|%09lld|\n";
-    long long ivalue = -1234567;
-    //int iv = -4567;
 
+//    char fstr[] = "|% 12llu|\n";
+//    unsigned long long ivalue = 1234567;
+
+
+    char fstr[] = "|%+0-12lld|\n";
+    long long ivalue = 1234567;
 
     res_p = printf(fstr, ivalue);
     res_ftp = ft_printf(fstr, ivalue);
     printf("%d %d\n", res_p, res_ftp);
+
 
 
 
