@@ -120,4 +120,7 @@ void        		ftprt_put_unumber(uintmax_t val, size_t len, t_printff *fl,
 void                ftprt_put_u(t_printff *fl, va_list *arg,
                         int *nprt, t_putchar f_putchar);
 
+void                ftprt_put_uu(t_printff *fl, va_list *arg,
+                         int *nprt, t_putchar f_putchar);
+
 #endif

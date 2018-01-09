@@ -103,4 +103,4 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_put_u.c
         libftprintf/ftprt_va_get_uvalue.c
         libftprintf/ftprt_put_unumber.c
-        libftprintf/ftprt_unumber_len.c)
+        libftprintf/ftprt_unumber_len.c libftprintf/ftprt_put_uu.c)
