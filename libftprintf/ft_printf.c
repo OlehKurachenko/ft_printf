@@ -7,10 +7,11 @@ const t_type_proc   g_type_map[CONV_TYPE_NUMB] =
 			&ftprt_put_ss,
             NULL, // TODO replace with 'p'
             &ftprt_put_d,
-            &ftprt_put_dd
+            &ftprt_put_dd,
+            &ftprt_put_d
 		};
 
-int 		        ft_printf(const char *format, ...)
+int                 ft_printf(const char *format, ...)
 {
 	va_list                     vl;
 	int                         res;
