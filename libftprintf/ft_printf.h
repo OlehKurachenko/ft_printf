@@ -134,5 +134,8 @@ void                ftprt_put_xnumber(uintmax_t val, size_t len,
 void                ftprt_put_x(t_printff *fl, va_list *arg,
                         int *nprt, t_putchar f_putchar);
 
+void    			ftprt_put_p(t_printff *fl, va_list *arg,
+					int *nprt, t_putchar f_putchar);
+
 
 #endif

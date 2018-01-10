@@ -105,4 +105,4 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_put_unumber.c
         libftprintf/ftprt_unumber_len.c
         libftprintf/ftprt_put_uu.c
-        libftprintf/ftprt_unumber_baselen.c libftprintf/ftprt_put_x.c libftprintf/ftprt_getupdecimal.c libftprintf/ftprt_put_xnumber.c)
+        libftprintf/ftprt_unumber_baselen.c libftprintf/ftprt_put_x.c libftprintf/ftprt_getupdecimal.c libftprintf/ftprt_put_xnumber.c libftprintf/ftprt_put_p.c)

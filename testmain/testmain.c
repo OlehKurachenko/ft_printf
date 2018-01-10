@@ -80,14 +80,12 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%-0#0.0lX|\n";
-    unsigned long ivalue = 1;
+    char fstr[] = "|%025.20p|\n";
+    unsigned long long ivalue = (unsigned long long)1245234234 * 1987987978;
 
     res_p = printf(fstr, ivalue);
     res_ftp = ft_printf(fstr, ivalue);
     printf("%d %d\n", res_p, res_ftp);
-
-
 
 
     //printf("|%*.0d|\n", -5, 123);
