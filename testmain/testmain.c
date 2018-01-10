@@ -36,7 +36,7 @@ int     main()
 //    TESTING VA
 	//test_va("123454534", 34, 45, 56, 76);
 
-    setlocale(LC_ALL, "");
+
 //
 //	int 	    i = 14248;
 //    size_t      lim = 4;
@@ -45,6 +45,14 @@ int     main()
 //    char        *c = b;
 //    wchar_t     *d = a;
     wchar_t     yy[] = {945, 14248, 0};
+
+    printf("|%S|\n", a);
+    ft_printf("|%S|\n", a);
+
+    setlocale(LC_ALL, "");
+
+    printf("|%S|\n", a);
+    ft_printf("|%S|\n", a);
 //
     //test_va("123");
 
