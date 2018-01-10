@@ -12,7 +12,9 @@ const t_type_proc   g_type_map[CONV_TYPE_NUMB] =
             NULL,   // TODO replace with 'o'
             NULL,	// TODO replace with 'O'
 			&ftprt_put_u,
-			&ftprt_put_uu
+			&ftprt_put_uu,
+            &ftprt_put_x,
+            &ftprt_put_x
 		};
 
 int                 ft_printf(const char *format, ...)

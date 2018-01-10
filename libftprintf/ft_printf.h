@@ -39,7 +39,7 @@
 **	TYPE:
 **		-1:		not a flag
 ** 		28:		type not defined
-** 		0..27:	"%sSpdDioOuUxXcCeEfFgGaAnbrk"
+** 		0..27:	"%sSpdDioOu UxXcCeEfFg GaAnbrk"
 ** 				conversions
 **
 */
@@ -122,5 +122,17 @@ void                ftprt_put_u(t_printff *fl, va_list *arg,
 
 void                ftprt_put_uu(t_printff *fl, va_list *arg,
                          int *nprt, t_putchar f_putchar);
+
+char                ftprt_getupdecimal(unsigned char digit, unsigned char is_big);
+
+unsigned char       ftprt_unumber_baselen(uintmax_t val, unsigned char zero_to_one,
+     unsigned char is_apo, unsigned char base);
+
+void                ftprt_put_xnumber(uintmax_t val, size_t len,
+                                          t_printff *fl, t_putchar f_putchar);
+
+void                ftprt_put_x(t_printff *fl, va_list *arg,
+                        int *nprt, t_putchar f_putchar);
+
 
 #endif

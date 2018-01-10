@@ -80,8 +80,8 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%+0-12U|\n";
-    unsigned long ivalue = 1234567;
+    char fstr[] = "|%-0#0.0lX|\n";
+    unsigned long ivalue = 1;
 
     res_p = printf(fstr, ivalue);
     res_ftp = ft_printf(fstr, ivalue);
