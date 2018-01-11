@@ -143,5 +143,8 @@ void				ftprt_put_onumber(uintmax_t val, size_t len,
 void				ftprt_put_o(t_printff *fl, va_list *arg, int *nptr,
 						t_putchar f_putchar);
 
+void				ftprt_put_oo(t_printff *fl, va_list *arg, int *nprt,
+						 t_putchar f_putchar);
+
 
 #endif

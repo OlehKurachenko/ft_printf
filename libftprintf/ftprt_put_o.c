@@ -2,10 +2,19 @@
 
 static void	precision_case(t_printff *fl, const size_t len, const uintmax_t val)
 {
+	fl->flags[5] = (unsigned char)(fl->precision == -1);
 	if (fl->flags[0] && val && fl->precision <= (long long)len)
 		fl->precision = len + 1;
 	if (fl->flags[0] && (!val) && fl->precision == 0)
 		fl->precision = 1;
+	if (fl->precision != -1)
+	{
+		if (!fl->flags[5])
+			fl->flags[1] = 0;
+	}
+	else
+	if (fl->width > 0 && fl->flags[1])
+		fl->precision = fl->width;
 }
 
 /*
@@ -20,14 +29,8 @@ void		ftprt_put_o(t_printff *fl, va_list *arg, int *nptr,
 		(fl->precision != 0) ? 1 : fl->flags[0], fl->flags[4], 8);
 	size_t              used_len;
 
-	fl->flags[5] = (unsigned char)(fl->precision == -1);
+
 	precision_case(fl, len, val);
-	if (fl->precision != -1)
-		if (!fl->flags[5])
-			fl->flags[1] = 0;
-	else
-	if (fl->width > 0 && fl->flags[1])
-		fl->precision = fl->width;
 	used_len = (fl->precision == -1 || len > fl->precision)
 			   ? len : fl->precision;
 	if (used_len < fl->width && (!fl->flags[2]))

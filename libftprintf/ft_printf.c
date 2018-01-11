@@ -9,8 +9,8 @@ const t_type_proc	g_type_map[CONV_TYPE_NUMB] =
             &ftprt_put_d,
             &ftprt_put_dd,
             &ftprt_put_d,
-            &ftprt_put_o,   // TODO replace with 'o'
-            NULL,	// TODO replace with 'O'
+            &ftprt_put_o,
+			&ftprt_put_oo,
 			&ftprt_put_u,
 			&ftprt_put_uu,
             &ftprt_put_x,

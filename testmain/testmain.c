@@ -88,7 +88,7 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%#25llo|\n";
+    char fstr[] = "|%#025llO|\n";
     unsigned long long ivalue = (unsigned long long)2 * 1987987978;
 
     res_p = printf(fstr, ivalue);
