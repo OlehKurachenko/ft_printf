@@ -147,5 +147,8 @@ void				ftprt_put_oo(t_printff *fl, va_list *arg, int *nprt,
 void				ftprt_put_c(t_printff *fl, va_list *arg, int *nprt,
 						t_putchar f_putchar);
 
+void				ftprt_put_cc(t_printff *fl, va_list *arg,
+								 int *nprt, t_putchar f_putchar);
+
 
 #endif

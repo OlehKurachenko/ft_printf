@@ -111,4 +111,4 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_put_xnumber.c
         libftprintf/ftprt_put_p.c
         libftprintf/ftprt_put_o.c
-        libftprintf/ftprt_put_onumber.c libftprintf/ftprt_put_oo.c libftprintf/ftprt_put_c.c)
+        libftprintf/ftprt_put_onumber.c libftprintf/ftprt_put_oo.c libftprintf/ftprt_put_c.c libftprintf/ftprt_put_cc.c)

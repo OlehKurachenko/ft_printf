@@ -89,13 +89,13 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%-4c|\n";
+    char fstr[] = "|%.6lc|\n";
     //unsigned long long ivalue = (unsigned long long)2 * 1987987978;
 
 	char t = '1';
 
-    res_p = printf(fstr, t);
-    res_ftp = ft_printf(fstr, t);
+    res_p = printf(fstr, cc);
+    res_ftp = ft_printf(fstr, cc);
     printf("%d %d\n", res_p, res_ftp);
 
 
