@@ -46,13 +46,13 @@ int     main()
 //    wchar_t     *d = a;
     wchar_t     yy[] = {945, 14248, 0};
 
-    printf("|%S|\n", a);
-    ft_printf("|%S|\n", a);
-
-    setlocale(LC_ALL, "");
-
-    printf("|%S|\n", a);
-    ft_printf("|%S|\n", a);
+//    printf("|%S|\n", a);
+//    ft_printf("|%S|\n", a);
+//
+//    setlocale(LC_ALL, "");
+//
+//    printf("|%S|\n", a);
+//    ft_printf("|%S|\n", a);
 //
     //test_va("123");
 
@@ -88,8 +88,8 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%025.20p|\n";
-    unsigned long long ivalue = (unsigned long long)1245234234 * 1987987978;
+    char fstr[] = "|%#25llo|\n";
+    unsigned long long ivalue = (unsigned long long)2 * 1987987978;
 
     res_p = printf(fstr, ivalue);
     res_ftp = ft_printf(fstr, ivalue);

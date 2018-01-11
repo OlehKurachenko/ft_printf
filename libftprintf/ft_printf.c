@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-const t_type_proc   g_type_map[CONV_TYPE_NUMB] =
+const t_type_proc	g_type_map[CONV_TYPE_NUMB] =
 		{
 			&ftprt_put_dblpercent,
 			&ftprt_put_s,
@@ -9,7 +9,7 @@ const t_type_proc   g_type_map[CONV_TYPE_NUMB] =
             &ftprt_put_d,
             &ftprt_put_dd,
             &ftprt_put_d,
-            NULL,   // TODO replace with 'o'
+            &ftprt_put_o,   // TODO replace with 'o'
             NULL,	// TODO replace with 'O'
 			&ftprt_put_u,
 			&ftprt_put_uu,
@@ -17,7 +17,7 @@ const t_type_proc   g_type_map[CONV_TYPE_NUMB] =
             &ftprt_put_x
 		};
 
-int                 ft_printf(const char *format, ...)
+int					ft_printf(const char *format, ...)
 {
 	va_list                     vl;
 	int                         res;

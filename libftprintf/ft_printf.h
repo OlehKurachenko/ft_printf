@@ -99,9 +99,9 @@ void            	ftprt_put_ss(t_printff *fl, va_list *arg, int *nptr,
 							 t_putchar f_putchar);
 
 unsigned char       ftprt_number_len(intmax_t val, unsigned char zero_to_one,
-                                     unsigned char is_apo);
+									 unsigned char is_apo);
 void                ftprt_put_number(intmax_t val, size_t len, t_printff *fl,
-                             t_putchar f_putchar);
+							 t_putchar f_putchar);
 
 void                ftprt_put_d(t_printff *fl, va_list *arg,
 								int *nprt, t_putchar f_putchar);
@@ -118,24 +118,30 @@ void        		ftprt_put_unumber(uintmax_t val, size_t len, t_printff *fl,
 							  t_putchar f_putchar);
 
 void                ftprt_put_u(t_printff *fl, va_list *arg,
-                        int *nprt, t_putchar f_putchar);
+						int *nprt, t_putchar f_putchar);
 
 void                ftprt_put_uu(t_printff *fl, va_list *arg,
-                         int *nprt, t_putchar f_putchar);
+						 int *nprt, t_putchar f_putchar);
 
 char                ftprt_getupdecimal(unsigned char digit, unsigned char is_big);
 
 unsigned char       ftprt_unumber_baselen(uintmax_t val, unsigned char zero_to_one,
-     unsigned char is_apo, unsigned char base);
+	 unsigned char is_apo, unsigned char base);
 
 void                ftprt_put_xnumber(uintmax_t val, size_t len,
-                                          t_printff *fl, t_putchar f_putchar);
+										  t_printff *fl, t_putchar f_putchar);
 
 void                ftprt_put_x(t_printff *fl, va_list *arg,
-                        int *nprt, t_putchar f_putchar);
+						int *nprt, t_putchar f_putchar);
 
 void    			ftprt_put_p(t_printff *fl, va_list *arg,
 					int *nprt, t_putchar f_putchar);
+
+void				ftprt_put_onumber(uintmax_t val, size_t len,
+										  t_printff *fl, t_putchar f_putchar);
+
+void				ftprt_put_o(t_printff *fl, va_list *arg, int *nptr,
+						t_putchar f_putchar);
 
 
 #endif
