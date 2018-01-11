@@ -41,6 +41,7 @@ int     main()
 //	int 	    i = 14248;
 //    size_t      lim = 4;
 	wchar_t	    a[] = L"ϏϏϏ";
+	wchar_t 	cc = L'Ϗ';
 //	char        b[] = "d;dϏsi";
 //    char        *c = b;
 //    wchar_t     *d = a;
@@ -49,7 +50,7 @@ int     main()
 //    printf("|%S|\n", a);
 //    ft_printf("|%S|\n", a);
 //
-//    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "");
 //
 //    printf("|%S|\n", a);
 //    ft_printf("|%S|\n", a);
@@ -88,11 +89,13 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%#025llO|\n";
-    unsigned long long ivalue = (unsigned long long)2 * 1987987978;
+    char fstr[] = "|%-4c|\n";
+    //unsigned long long ivalue = (unsigned long long)2 * 1987987978;
 
-    res_p = printf(fstr, ivalue);
-    res_ftp = ft_printf(fstr, ivalue);
+	char t = '1';
+
+    res_p = printf(fstr, t);
+    res_ftp = ft_printf(fstr, t);
     printf("%d %d\n", res_p, res_ftp);
 
 

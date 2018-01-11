@@ -8,8 +8,6 @@
 
 # define CONV_TYPE_NUMB 27
 
-// TODO write code comments
-
 /*
 **	FLAGS:
 **		0: '#' flag
@@ -145,6 +143,9 @@ void				ftprt_put_o(t_printff *fl, va_list *arg, int *nptr,
 
 void				ftprt_put_oo(t_printff *fl, va_list *arg, int *nprt,
 						 t_putchar f_putchar);
+
+void				ftprt_put_c(t_printff *fl, va_list *arg, int *nprt,
+						t_putchar f_putchar);
 
 
 #endif
