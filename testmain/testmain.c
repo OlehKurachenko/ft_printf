@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+//#include <math.h>
 #include "../libftprintf/ft_printf.h"
 
 //void test_va2(t_printff *fll, va_list *arg, int *i)
@@ -89,13 +90,36 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%.6lc|\n";
+    char fstr[] = "|%10.5e|\n";
+	double dv = 0.0 / 0.0; //1.5
+	//int iii = 4234234;
+	//int tempin = (int)dv;
+
+//	unsigned long long	mask = 1;
+//	mask <<= 12;
+//	mask -= 1;
+//	mask <<= 52;
+//
+//	void				*vvaptr = &dv;
+//	unsigned long long	*vaptr = vvaptr;
+//
+//	for (unsigned long long dmask = mask; dmask; dmask >>= 1)
+//		printf("%d", dmask & 1);
+//	printf("\n");
+//
+//	unsigned long long res = (*vaptr) & mask;
+//
+//	for (unsigned long long dmask = *vaptr; dmask; dmask >>= 1)
+//		printf("%d", dmask & 1);
+//	printf("\n");
+
+	//printf("%u\n", sizeof(double), sizeof(long double), sizeof(uintmax_t));
     //unsigned long long ivalue = (unsigned long long)2 * 1987987978;
 
-	char t = '1';
+	//char t = '1';
 
-    res_p = printf(fstr, cc);
-    res_ftp = ft_printf(fstr, cc);
+    res_p = printf(fstr, dv);
+    res_ftp = ft_printf(fstr, dv);
     printf("%d %d\n", res_p, res_ftp);
 
 

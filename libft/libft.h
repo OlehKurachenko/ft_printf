@@ -175,4 +175,6 @@ void			ft_putnbr_base(int n, unsigned char base);
 
 void			ft_sf_bin_put_longlong(unsigned long long n);
 
+long double		ft_ldpow(long double val, size_t pow);
+
 #endif

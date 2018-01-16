@@ -92,7 +92,8 @@ SRC =	ft_strlen.c \
 		ft_sqrt_up.c \
 		ft_longdigit.c \
 		ft_putnbr_base.c \
-		ft_sf_bin_put_longlong.c
+		ft_sf_bin_put_longlong.c \
+		ft_ldpow.c
 
 
 OBJ = $(SRC:.c=.o)

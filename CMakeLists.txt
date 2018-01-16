@@ -81,6 +81,7 @@ add_executable(ft_printf_clion
         libft/ft_strtrim.c
         libft/ft_tolower.c
         libft/ft_toupper.c
+        libft/ft_ldpow.c
         libft/libft.h
 
         testmain/testmain.c
@@ -111,4 +112,12 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_put_xnumber.c
         libftprintf/ftprt_put_p.c
         libftprintf/ftprt_put_o.c
-        libftprintf/ftprt_put_onumber.c libftprintf/ftprt_put_oo.c libftprintf/ftprt_put_c.c libftprintf/ftprt_put_cc.c)
+        libftprintf/ftprt_put_onumber.c
+        libftprintf/ftprt_put_oo.c
+        libftprintf/ftprt_put_c.c
+        libftprintf/ftprt_put_cc.c
+        libftprintf/ftprt_put_e.c
+        libftprintf/ftprt_va_get_fvalue.c
+        libftprintf/ftprt_fgetexpon.c
+        libftprintf/ftprt_put_float_base.c
+        libftprintf/ftprt_put_unumber_smpl.c)
