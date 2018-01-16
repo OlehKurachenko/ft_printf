@@ -19,19 +19,19 @@ static size_t				count_length(t_printff *const fl,
 	return (res + fl->precision);
 }
 
-static void					put_nan(unsigned char isNan, t_putchar f_putchar)
+static void					put_nan(t_printff *fl, unsigned char isNan, t_putchar f_putchar)
 {
 	if (isNan)
 	{
-		f_putchar('n');
-		f_putchar('a');
-		f_putchar('n');
+		f_putchar((char)((fl->type == 15) ? 'n' : 'N'));
+		f_putchar((char)((fl->type == 15) ? 'a' : 'A'));
+		f_putchar((char)((fl->type == 15) ? 'n' : 'N'));
 	}
 	else
 	{
-		f_putchar('i');
-		f_putchar('n');
-		f_putchar('f');
+		f_putchar((char)((fl->type == 15) ? 'i' : 'I'));
+		f_putchar((char)((fl->type == 15) ? 'n' : 'N'));
+		f_putchar((char)((fl->type == 15) ? 'f' : 'F'));
 	}
 }
 
@@ -51,7 +51,7 @@ static unsigned char		handle_nan_vals(t_printff *fl,
 	else
 	if ((fl->flags[3] || fl->flags[5]) && val == flt_pos_inf)
 		f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
-	put_nan((unsigned char) (val != val), f_putchar);
+	put_nan(fl, (unsigned char)(val != val), f_putchar);
 	if (len < fl->width && fl->flags[2])
 		ftprt_putnchar(' ', fl->width - len, f_putchar);
 	*nptr += ft_max_size_t(len, fl->width);

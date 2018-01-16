@@ -90,7 +90,7 @@ int     main()
 //    unsigned long long ivalue = 1234567;
 
 
-    char fstr[] = "|%10.5e|\n";
+    char fstr[] = "|%10.5E|\n";
 	double dv = 0.0 / 0.0; //1.5
 	//int iii = 4234234;
 	//int tempin = (int)dv;

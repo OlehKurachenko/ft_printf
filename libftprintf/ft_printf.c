@@ -17,6 +17,7 @@ const t_type_proc	g_type_map[CONV_TYPE_NUMB] =
             &ftprt_put_x,
 			&ftprt_put_c,
 			&ftprt_put_cc,
+			&ftprt_put_e,
 			&ftprt_put_e
 		};
 

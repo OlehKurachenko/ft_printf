@@ -120,4 +120,4 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_va_get_fvalue.c
         libftprintf/ftprt_fgetexpon.c
         libftprintf/ftprt_put_float_base.c
-        libftprintf/ftprt_put_unumber_smpl.c)
+        libftprintf/ftprt_put_unumber_smpl.c libftprintf/ftprt_put_ee.c)
