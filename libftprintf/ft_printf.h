@@ -166,4 +166,7 @@ void				ftprt_put_float_base(long double val, const long double base,
 
 void				ftprt_put_unumber_smpl(uintmax_t val, t_putchar f_putchar);
 
+void				ftprt_put_f(t_printff *fl, va_list *arg,
+										int *nptr, t_putchar f_putchar);
+
 #endif
