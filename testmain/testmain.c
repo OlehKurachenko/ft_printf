@@ -89,14 +89,8 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	// TODO here is one more case for handle nans
-//    char fstr[] = "|%#+0.0e|\n";
-//	double dv = 0.0 / 0.0; //1.5
-
-	// TODO or it looks like it depends on compiler!
-
-	char fstr[] = "|% #0.0e|\n";
-	double dv = -1.6; //1.5
+	char fstr[] = "|%+#0.0e|\n";
+	double dv = -1.49; //1.5
 	//int iii = 42342346
 	//int tempin = (int)dv;
 

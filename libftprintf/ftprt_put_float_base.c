@@ -26,17 +26,16 @@ static void		put_prepoint_part(long double val, const long double base,
 	// TODO write
 }
 
+/*
+**	Here, flag[6] will be used to show that number is < 0
+*/
+
 void			ftprt_put_float_base(long double val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
 	long double			downstep;
 	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
 
-	if (fl->flags[4])
-		f_putchar('-');
-	else
-	if (!fl->flags[1] && (fl->flags[3] || fl->flags[5]))
-		f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
 	val = ((val < 0) ? -val : val)
 		+ 0.5l * ft_ldpow(1l / base, (size_t)fl->precision);
 	downstep = 1l;

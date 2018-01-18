@@ -17,6 +17,8 @@
 **		4: ''' flag
 **		5: '+' flag
 **
+** 		6, 7: temporary operational flags
+**
 **  WIDTH:
 **      number from 0 to +inf
 **
@@ -46,7 +48,7 @@ typedef void		(*const t_putchar)(char);
 
 typedef struct	    s_printff
 {
-	unsigned char	flags[6];
+	unsigned char	flags[8];
 	size_t			width;
 	long long 		precision;
 	int				len_flag;

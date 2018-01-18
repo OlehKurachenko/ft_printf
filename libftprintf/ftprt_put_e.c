@@ -29,12 +29,11 @@ void						ftprt_put_e(t_printff *fl, va_list *arg,
 
 	if (ftprt_handle_nans(fl, val, nptr, f_putchar))
 		return ;
-	// TODO mistake here
-	if (fl->flags[4])
+	if (fl->flags[6])
 		f_putchar('-');
 	else
-	if (!fl->flags[1] && (fl->flags[3] || fl->flags[5]))
-		f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
+		if (fl->flags[3] || fl->flags[5])
+			f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
 	if (len < fl->width && (!fl->flags[2]))
 		ftprt_putnchar((char)((fl->flags[1]) ? '0' : ' '),
 					   fl->width - len, f_putchar);
