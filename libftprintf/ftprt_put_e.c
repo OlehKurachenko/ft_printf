@@ -12,7 +12,7 @@ static size_t				count_length(t_printff *const fl,
 							ftprt_number_len(expon, 1, 0));
 	if (fl->precision == -1)
 		fl->precision = e_type_deft_precision;
-	if (n_from_val < 0 || fl->flags[3] || fl->flags[5])
+	if (fl->flags[6] || fl->flags[3] || fl->flags[5])
 		++res;
 	if (fl->precision || fl->flags[0])
 		++res;

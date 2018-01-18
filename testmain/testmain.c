@@ -89,8 +89,8 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	char fstr[] = "|%+#0.0e|\n";
-	double dv = -1.49; //1.5
+	char fstr[] = "|%'#0.6e|\n";
+	double dv = -13423.49; //1.5
 	//int iii = 42342346
 	//int tempin = (int)dv;
 
