@@ -2,14 +2,19 @@
 
 static const size_t infinite_loop_number = 100000;
 
-int		ftprt_fgetexpon(long double val, const long double base,
-								long double *const val_normed)
+/*
+**	Here, '\'' flag will be used to show that number is < 0
+*/
+
+int		ftprt_fgetexpon(t_printff *fl, long double val,
+	const long double base, long double *const val_normed)
 {
 	int		res;
 	size_t	i;
 
 	if (val != val || val == flt_pos_inf || val == flt_neg_inf)
 		return (0);
+	fl->flags[4] = (unsigned char)(val < 0);
 	if (val < 0)
 		val = -val;
 	res = 0;

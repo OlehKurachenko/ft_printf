@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static void	put_afterpoint_part(long double val, const long double base,
+static void		put_afterpoint_part(long double val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
 	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
@@ -20,13 +20,19 @@ static void	put_afterpoint_part(long double val, const long double base,
 	}
 }
 
-void		ftprt_put_float_base(long double val, const long double base,
+static void		put_prepoint_part(long double val, const long double base,
+	t_printff *const fl, t_putchar f_putchar)
+{
+	// TODO write
+}
+
+void			ftprt_put_float_base(long double val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
 	long double			downstep;
 	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
 
-	if (val < 0)
+	if (fl->flags[4])
 		f_putchar('-');
 	else
 	if (!fl->flags[1] && (fl->flags[3] || fl->flags[5]))

@@ -155,18 +155,21 @@ void				ftprt_put_cc(t_printff *fl, va_list *arg,
 
 long double			ftprt_va_get_fvalue(t_printff *fl, va_list *arg);
 
-int					ftprt_fgetexpon(long double val, const long double base,
-						   long double *const val_normed);
+int		ftprt_fgetexpon(t_printff *fl, long double val,
+						   const long double base, long double *const val_normed);
 
 void				ftprt_put_e(t_printff *fl, va_list *arg,
 	int *nptr, t_putchar f_putchar);
 
 void				ftprt_put_float_base(long double val, const long double base,
-								 t_printff *const fl, t_putchar f_putchar);
+	t_printff *const fl, t_putchar f_putchar);
 
 void				ftprt_put_unumber_smpl(uintmax_t val, t_putchar f_putchar);
 
 void				ftprt_put_f(t_printff *fl, va_list *arg,
-										int *nptr, t_putchar f_putchar);
+	int *nptr, t_putchar f_putchar);
+
+unsigned char		ftprt_handle_nans(t_printff *fl,
+	const long double val, int *nptr, t_putchar f_putchar);
 
 #endif
