@@ -88,38 +88,39 @@ add_executable(ft_printf_clion
         libftprintf/ft_printf.h
         libftprintf/ft_printf.c
         libftprintf/ftprt_set_flags.c
-        libftprintf/ftprt_highest_byte.c
-        libftprintf/ftprt_putwchar.c
+        libftprintf/integer/ftprt_highest_byte.c
+        libftprintf/character/ftprt_putwchar.c
         libftprintf/ftprt_set_type.c
         libftprintf/ft_va_printf.c
         libftprintf/ftprt_put_dblpercent.c
-        libftprintf/ftprt_put_s.c
-        libftprintf/ftprt_putnchar.c
-        libftprintf/ftprt_putchar.c
-        libftprintf/ftprt_put_ss.c
-        libftprintf/ftprt_number_len.c
-        libftprintf/ftprt_put_number.c
-        libftprintf/ftprt_put_d.c
-        libftprintf/ftprt_put_dd.c
-        libftprintf/ftprt_put_u.c
-        libftprintf/ftprt_va_get_uvalue.c
-        libftprintf/ftprt_put_unumber.c
-        libftprintf/ftprt_unumber_len.c
-        libftprintf/ftprt_put_uu.c
-        libftprintf/ftprt_unumber_baselen.c
-        libftprintf/ftprt_put_x.c
+        libftprintf/character/ftprt_put_s.c
+        libftprintf/character/ftprt_putnchar.c
+        libftprintf/character/ftprt_putchar.c
+        libftprintf/character/ftprt_put_ss.c
+        libftprintf/integer/ftprt_number_len.c
+        libftprintf/integer/ftprt_put_number.c
+        libftprintf/integer/ftprt_put_d.c
+        libftprintf/integer/ftprt_put_dd.c
+        libftprintf/integer/ftprt_put_u.c
+        libftprintf/integer/ftprt_va_get_uvalue.c
+        libftprintf/integer/ftprt_put_unumber.c
+        libftprintf/integer/ftprt_unumber_len.c
+        libftprintf/integer/ftprt_put_uu.c
+        libftprintf/integer/ftprt_unumber_baselen.c
+        libftprintf/integer/ftprt_put_x.c
         libftprintf/ftprt_getupdecimal.c
-        libftprintf/ftprt_put_xnumber.c
-        libftprintf/ftprt_put_p.c
-        libftprintf/ftprt_put_o.c
-        libftprintf/ftprt_put_onumber.c
-        libftprintf/ftprt_put_oo.c
-        libftprintf/ftprt_put_c.c
-        libftprintf/ftprt_put_cc.c
-        libftprintf/ftprt_put_e.c
-        libftprintf/ftprt_va_get_fvalue.c
-        libftprintf/ftprt_fgetexpon.c
-        libftprintf/ftprt_put_float_base.c
-        libftprintf/ftprt_put_unumber_smpl.c
-        libftprintf/ftprt_put_f.c
-        libftprintf/ftprt_handle_nans.c libftprintf/ftprt_put_sign.c)
+        libftprintf/integer/ftprt_put_xnumber.c
+        libftprintf/integer/ftprt_put_p.c
+        libftprintf/integer/ftprt_put_o.c
+        libftprintf/integer/ftprt_put_onumber.c
+        libftprintf/integer/ftprt_put_oo.c
+        libftprintf/character/ftprt_put_c.c
+        libftprintf/character/ftprt_put_cc.c
+        libftprintf/float/ftprt_put_e.c
+        libftprintf/float/ftprt_va_get_fvalue.c
+        libftprintf/float/ftprt_fgetexpon.c
+        libftprintf/float/ftprt_put_float_base.c
+        libftprintf/integer/ftprt_put_unumber_smpl.c
+        libftprintf/float/ftprt_put_f.c
+        libftprintf/float/ftprt_handle_nans.c
+        libftprintf/float/ftprt_put_sign.c)
