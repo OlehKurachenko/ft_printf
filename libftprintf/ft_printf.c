@@ -20,7 +20,8 @@ const t_type_proc	g_type_map[CONV_TYPE_NUMB] =
 			&ftprt_put_e,
 			&ftprt_put_e,
 			&ftprt_put_f,
-			&ftprt_put_f
+			&ftprt_put_f,
+			&ftprt_put_n
 		};
 
 int					ft_printf(const char *format, ...)

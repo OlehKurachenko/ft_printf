@@ -2,7 +2,7 @@
 
 static const char	*set_flags(t_printff *fl, const char *pos)
 {
-	ft_memset(fl->flags, 0, 4);
+	ft_memset(fl->flags, 0, 8);
 	while (*pos == ' ' || *pos == '-' || *pos == '+'
 		   || *pos == '#' || *pos == '0' || *pos == '\'')
 	{

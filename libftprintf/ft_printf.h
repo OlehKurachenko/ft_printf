@@ -81,8 +81,6 @@ const char          *ftprt_set_type(t_printff *fl, const char *pos);
 
 static const long double	flt_inf = 1.0/0.0;
 
-void        		ftprt_putchar(char c);
-
 unsigned char       ftprt_highest_byte(size_t val);
 
 size_t              ftprt_putwchar(unsigned int c, t_putchar f_putchar);
@@ -176,5 +174,8 @@ unsigned char		ftprt_handle_nans(t_printff *fl,
 void				ftprt_put_sign(t_printff *const fl, t_putchar f_putchar);
 
 long double			ftprt_set_fsign(t_printff *const fl, long double val);
+
+void				ftprt_put_n(t_printff *fl, va_list *arg,
+								int *nprt, t_putchar f_putchar);
 
 #endif

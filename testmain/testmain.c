@@ -89,7 +89,10 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	char fstr[] = "|%1.Lg|\n";
+	int val = 0, val2 = 0;
+	int *v = &val, *v1 = &val2;
+
+	char fstr[] = "|%1.Lf%n|\n";
 	long double dv = 345.234; //1.5
 	//int iii = 42342346
 	//int tempin = (int)dv;
@@ -117,9 +120,10 @@ int     main()
 
 	//char t = '1';
 
-    res_p = printf(fstr, dv);
-    res_ftp = ft_printf(fstr, dv);
-    printf("%d %d\n", res_p, res_ftp);
+    //res_p = printf(fstr, dv, v);
+    res_ftp = ft_printf(fstr, dv, v1);
+    //printf("%d %d\n", res_p, res_ftp);
+	printf("%d %d\n", val, val2);
 
 
     //printf("|%*.0d|\n", -5, 123);
