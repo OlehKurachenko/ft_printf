@@ -174,4 +174,6 @@ void				ftprt_put_f(t_printff *fl, va_list *arg,
 unsigned char		ftprt_handle_nans(t_printff *fl,
 	const long double val, int *nptr, t_putchar f_putchar);
 
+void				ftprt_put_sign(t_printff *const fl, const t_putchar f_putchar);
+
 #endif

@@ -3,8 +3,7 @@
 static const long long		e_type_deft_precision = 6;
 static const long double	e_type_base = 10l;
 
-static size_t				count_length(t_printff *const fl,
-	long double n_from_val, const int expon)
+static size_t				count_length(t_printff *const fl, const int expon)
 {
 	size_t	res;
 
@@ -25,18 +24,17 @@ void						ftprt_put_e(t_printff *fl, va_list *arg,
 	const long double	val = ftprt_va_get_fvalue(fl, arg);
 	long double			n_form;
 	const int			expon = ftprt_fgetexpon(fl, val, e_type_base, &n_form);
-	const size_t 		len = count_length(fl, n_form, expon);
+	const size_t 		len = count_length(fl, expon);
 
 	if (ftprt_handle_nans(fl, val, nptr, f_putchar))
 		return ;
-	if (fl->flags[6])
-		f_putchar('-');
-	else
-		if (fl->flags[3] || fl->flags[5])
-			f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
+	if (fl->flags[1])
+		ftprt_put_sign(fl, f_putchar);
 	if (len < fl->width && (!fl->flags[2]))
 		ftprt_putnchar((char)((fl->flags[1]) ? '0' : ' '),
 					   fl->width - len, f_putchar);
+	if (!fl->flags[1])
+		ftprt_put_sign(fl, f_putchar);
 	ftprt_put_float_base(n_form, e_type_base, fl, f_putchar);
 	f_putchar((char)((fl->type == 15) ? 'e' : 'E'));
 	f_putchar((char)((expon >= 0) ? '+' : '-'));

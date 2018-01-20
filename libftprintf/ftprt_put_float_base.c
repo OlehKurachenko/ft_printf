@@ -30,14 +30,14 @@ static void		put_prepoint_part(long double *const val, const long double base,
 	downstep = 1l;
 	while (*val / downstep >= base)
 		downstep *= base;
-	fl->flags[4] = 1;
-	while (*val >= 1l || fl->flags[4])
+	fl->flags[7] = 1;
+	while (*val >= 1l || fl->flags[7])
 	{
 		f_putchar(ftprt_getupdecimal((unsigned char)(*val / downstep),
 									  is_capital));
-		*val -= (uintmax_t)(*val/downstep);
+		*val -= (uintmax_t)(*val/downstep) * downstep;
 		downstep /= base;
-		fl->flags[4] = 0;
+		fl->flags[7] = 0;
 	}
 }
 
@@ -51,14 +51,14 @@ static void		put_prepoint_part_apo(long double *const val, const long double bas
 	downstep = 1l;
 	while (*val / downstep >= base)
 		downstep *= base;
-	fl->flags[4] = 1;
-	while (*val >= 1l || fl->flags[4])
+	fl->flags[7] = 1;
+	while (*val >= 1l || fl->flags[7])
 	{
 		f_putchar(ftprt_getupdecimal((unsigned char)(*val / downstep),
 									 is_capital));
 		*val -= (uintmax_t)(*val/downstep);
 		downstep /= base;
-		fl->flags[4] = 0;
+		fl->flags[7] = 0;
 	}
 }
 
