@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 char    ftprt_getupdecimal(unsigned char digit, unsigned char is_big)
 {

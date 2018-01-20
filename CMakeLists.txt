@@ -107,7 +107,7 @@ add_executable(ft_printf_clion
         libftprintf/integer/ftprt_put_uu.c
         libftprintf/integer/ftprt_unumber_baselen.c
         libftprintf/integer/ftprt_put_x.c
-        libftprintf/ftprt_getupdecimal.c
+        libftprintf/utils/ftprt_getupdecimal.c
         libftprintf/integer/ftprt_put_xnumber.c
         libftprintf/integer/ftprt_put_p.c
         libftprintf/integer/ftprt_put_o.c
@@ -129,4 +129,4 @@ add_executable(ft_printf_clion
         libftprintf/time_t/time_t.h
         libftprintf/date/ftprt_put_k.c
         libftprintf/date/ftprt_put_kk.c
-        libftprintf/ftprt_putstr.c libftprintf/binary/ftprt_put_b.c libftprintf/binary/ftprt_put_bb.c libftprintf/binary/ftprt_put_r.c)
+        libftprintf/utils/ftprt_putstr.c libftprintf/binary/ftprt_put_b.c libftprintf/binary/ftprt_put_bb.c libftprintf/binary/ftprt_put_r.c libftprintf/ftprt_ordered_check.c)

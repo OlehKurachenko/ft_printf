@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void		ftprt_putstr(char const *s, t_putchar f_putchar)
 {
