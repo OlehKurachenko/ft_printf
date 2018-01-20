@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void		ftprt_put_sign(t_printff *const fl, const t_putchar f_putchar)
+void		ftprt_put_sign(t_printff *const fl, t_putchar f_putchar)
 {
 	if (fl->flags[6])
 		f_putchar('-');

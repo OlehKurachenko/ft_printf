@@ -21,17 +21,17 @@ unsigned char		ftprt_handle_nans(t_printff *fl,
 {
 	size_t	len;
 
-	if (val == val && val != flt_neg_inf && val != flt_pos_inf)
+	if (val == val && val != flt_inf)
 		return (0);
-	len = (val == flt_neg_inf || ((fl->flags[3] || fl->flags[5])
-								  && val == flt_pos_inf)) ? 4 : 3;
+	len = (val == flt_inf && ((fl->flags[6]) || (!fl->flags[6]
+		&& (fl->flags[3] || fl->flags[5])))) ? 4 : 3;
 	if (len < fl->width && !fl->flags[2])
 		ftprt_putnchar(' ', fl->width - len, f_putchar);
-	if (val == flt_neg_inf)
+	if (val == flt_inf && fl->flags[6])
 		f_putchar('-');
 	else
-	if ((fl->flags[3] || fl->flags[5]) && val == flt_pos_inf)
-		f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
+		if ((fl->flags[3] || fl->flags[5]) && val == flt_inf && !fl->flags[6])
+			f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
 	put_nan(fl, (unsigned char)(val != val), f_putchar);
 	if (len < fl->width && fl->flags[2])
 		ftprt_putnchar(' ', fl->width - len, f_putchar);

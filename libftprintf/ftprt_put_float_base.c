@@ -3,7 +3,6 @@
 static void		put_afterpoint_part(long double val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
-	// TODO correct this?
 	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
 	size_t				prec;
 
@@ -11,7 +10,7 @@ static void		put_afterpoint_part(long double val, const long double base,
 		f_putchar('.');
 	if (!fl->precision)
 		return ;
-	prec = fl->precision;
+	prec = (size_t)fl->precision;
 	val = (val - (uintmax_t)(val)) * base;
 	while (prec > 0)
 	{
@@ -46,17 +45,24 @@ static void		put_prepoint_part_apo(long double *const val, const long double bas
 {
 	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
 	long double			downstep;
+	size_t				len_i;
 
-	// TODO configure apo
 	downstep = 1l;
+	len_i = 0;
 	while (*val / downstep >= base)
+	{
 		downstep *= base;
+		++len_i;
+	}
 	fl->flags[7] = 1;
 	while (*val >= 1l || fl->flags[7])
 	{
 		f_putchar(ftprt_getupdecimal((unsigned char)(*val / downstep),
 									 is_capital));
-		*val -= (uintmax_t)(*val/downstep);
+		if (len_i % 3 == 0 && len_i)
+			f_putchar(',');
+		--len_i;
+		*val -= (uintmax_t)(*val/downstep) * downstep;
 		downstep /= base;
 		fl->flags[7] = 0;
 	}

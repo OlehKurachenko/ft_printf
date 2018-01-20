@@ -12,7 +12,7 @@ int		ftprt_fgetexpon(t_printff *fl, long double val,
 	int		res;
 	size_t	i;
 
-	if (val != val || val == flt_pos_inf || val == flt_neg_inf)
+	if (val != val || val == flt_inf)
 		return (0);
 	fl->flags[6] = (unsigned char)(val < 0);
 	if (val < 0)

@@ -79,8 +79,7 @@ const char          *ftprt_set_type(t_printff *fl, const char *pos);
 **  OUTPUT SECTION
 */
 
-static const long double	flt_pos_inf = 1.0/0.0;
-static const long double	flt_neg_inf = -1.0/0.0;
+static const long double	flt_inf = 1.0/0.0;
 
 void        		ftprt_putchar(char c);
 
@@ -174,6 +173,6 @@ void				ftprt_put_f(t_printff *fl, va_list *arg,
 unsigned char		ftprt_handle_nans(t_printff *fl,
 	const long double val, int *nptr, t_putchar f_putchar);
 
-void				ftprt_put_sign(t_printff *const fl, const t_putchar f_putchar);
+void				ftprt_put_sign(t_printff *const fl, t_putchar f_putchar);
 
 #endif
