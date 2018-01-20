@@ -132,7 +132,10 @@ int     main()
 
 	destruct_t_time_t((const t_time_t **const)&time);
 
-	ft_printf("|%20lb|", (time_t)15);
+	time_t tb = 15;
+
+	ft_printf("|%100lb|\n", tb);
+	ft_printf("|%'100.*lB|\n", sizeof(tb), &tb);
 
     //printf("|%*.0d|\n", -5, 123);
 
