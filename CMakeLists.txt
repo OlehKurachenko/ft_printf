@@ -122,4 +122,11 @@ add_executable(ft_printf_clion
         libftprintf/integer/ftprt_put_unumber_smpl.c
         libftprintf/float/ftprt_put_f.c
         libftprintf/float/ftprt_handle_nans.c
-        libftprintf/float/ftprt_put_sign.c libftprintf/float/ftprt_set_fsign.c libftprintf/ftprt_put_n.c libftprintf/time_t/time_t.c libftprintf/time_t/time_t.h libftprintf/date/ftprt_put_k.c)
+        libftprintf/float/ftprt_put_sign.c
+        libftprintf/float/ftprt_set_fsign.c
+        libftprintf/ftprt_put_n.c
+        libftprintf/time_t/time_t.c
+        libftprintf/time_t/time_t.h
+        libftprintf/date/ftprt_put_k.c
+        libftprintf/date/ftprt_put_kk.c
+        libftprintf/ftprt_putstr.c)

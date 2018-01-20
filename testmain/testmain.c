@@ -132,7 +132,7 @@ int     main()
 
 	destruct_t_time_t((const t_time_t **const)&time);
 
-	ft_printf("|%-20k|", (time_t)1516457257);
+	ft_printf("|%-#20K|", (time_t)1516457257);
 
     //printf("|%*.0d|\n", -5, 123);
 
