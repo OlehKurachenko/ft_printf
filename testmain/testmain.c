@@ -135,7 +135,7 @@ int     main()
 	time_t tb = 15;
 
 	ft_printf("|%100lb|\n", tb);
-	ft_printf("|%'100.*lB|\n", sizeof(tb), &tb);
+	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
     //printf("|%*.0d|\n", -5, 123);
 
