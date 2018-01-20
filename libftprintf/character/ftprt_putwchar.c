@@ -43,30 +43,3 @@ size_t      ftprt_putwchar(unsigned int c, t_putchar f_putchar)
 	put_4_char_wchar(c, f_putchar);
 	return (4);
 }
-
-size_t      ftprt_putwchar_lim(unsigned int c, size_t *lim, t_putchar f_putchar)
-{
-	const unsigned char hb = ftprt_highest_byte(c);
-
-	if (*lim >= 1 && hb <= 7)
-	{
-		f_putchar((char)c);
-		return (1);
-	}
-	if (*lim >= 2 && hb <= 11)
-	{
-		put_2_char_wchar(c, f_putchar);
-		return (2);
-	}
-	if (*lim >= 3 && hb <= 16)
-	{
-		put_3_char_wchar(c, f_putchar);
-		return (3);
-	}
-	if (*lim >= 4)
-	{
-		put_4_char_wchar(c, f_putchar);
-		return (4);
-	}
-	return (*lim = 0);
-}

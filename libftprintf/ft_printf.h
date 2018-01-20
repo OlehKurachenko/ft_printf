@@ -89,8 +89,6 @@ unsigned char       ftprt_highest_byte(size_t val);
 
 size_t              ftprt_putwchar(unsigned int c, t_putchar f_putchar);
 
-size_t              ftprt_putwchar_lim(unsigned int c, size_t *lim, t_putchar f_putchar);
-
 void                ftprt_putnchar(char c, size_t n, t_putchar f_putchar);
 
 void                ftprt_put_dblpercent(t_printff *fl, va_list *arg, int *nprt,
@@ -187,5 +185,8 @@ void				ftprt_put_k(t_printff *fl, va_list *arg,
 
 void				ftprt_put_kk(t_printff *fl, va_list *arg,
 								 int *nprt, t_putchar f_putchar);
+
+void				ftprt_put_b(t_printff *fl, va_list *arg,
+								int *nprt, t_putchar f_putchar);
 
 #endif
