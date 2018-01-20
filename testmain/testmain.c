@@ -92,8 +92,8 @@ int     main()
 	int val = 0, val2 = 0;
 	int *v = &val, *v1 = &val2;
 
-	char fstr[] = "|%1.Lf%n|\n";
-	long double dv = 345.234; //1.5
+	//char fstr[] = "|%1.Lf%n|\n";
+	//long double dv = 345.234; //1.5
 	//int iii = 42342346
 	//int tempin = (int)dv;
 
@@ -121,10 +121,18 @@ int     main()
 	//char t = '1';
 
     //res_p = printf(fstr, dv, v);
-    res_ftp = ft_printf(fstr, dv, v1);
+    //res_ftp = ft_printf(fstr, dv, v1);
     //printf("%d %d\n", res_p, res_ftp);
-	printf("%d %d\n", val, val2);
+	//printf("%d %d\n", val, val2);
 
+	t_time_t *time = construct_t_time_t_uf(1516457257);
+
+	ft_printf("time: %u %u %u %u %u %u\n", time->year, time->month, time->day,
+		time->hour, time->minute, time->second);
+
+	destruct_t_time_t((const t_time_t **const)&time);
+
+	ft_printf("|%-20k|", (time_t)1516457257);
 
     //printf("|%*.0d|\n", -5, 123);
 

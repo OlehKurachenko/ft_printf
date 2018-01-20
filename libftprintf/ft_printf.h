@@ -5,6 +5,8 @@
 
 # include <stdarg.h>
 # include <stdint.h>
+# include <time.h>
+# include "time_t/time_t.h"
 
 # define CONV_TYPE_NUMB 23
 
@@ -39,7 +41,7 @@
 **	TYPE:
 **		-1:		not a flag
 ** 		28:		type not defined
-** 		0..27:	"%sSpdDioOu UxXcCeEfFn brk"
+** 		0..27:	"%sSpdDioOu UxXcCeEfFn kbr"
 ** 				conversions
 **
 */
@@ -176,6 +178,9 @@ void				ftprt_put_sign(t_printff *const fl, t_putchar f_putchar);
 long double			ftprt_set_fsign(t_printff *const fl, long double val);
 
 void				ftprt_put_n(t_printff *fl, va_list *arg,
+								int *nprt, t_putchar f_putchar);
+
+void				ftprt_put_k(t_printff *fl, va_list *arg,
 								int *nprt, t_putchar f_putchar);
 
 #endif
