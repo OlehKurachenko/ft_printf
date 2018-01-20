@@ -29,18 +29,10 @@ static size_t 				count_length(t_printff *const fl, long double val)
 	return (res + fl->precision);
 }
 
-static long double			set_sign(t_printff *const fl, long double val)
-{
-	fl->flags[6] = (unsigned char)(val < 0);
-	if (val < 0)
-		val = -val;
-	return (val);
-}
-
 void						ftprt_put_f(t_printff *fl, va_list *arg,
 	int *nptr, t_putchar f_putchar)
 {
-	const long double	val = set_sign(fl, ftprt_va_get_fvalue(fl, arg));
+	const long double	val = ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg));
 	const size_t 		len = count_length(fl, val);
 
 	if (ftprt_handle_nans(fl, val, nptr, f_putchar))

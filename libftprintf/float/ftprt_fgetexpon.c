@@ -14,9 +14,6 @@ int		ftprt_fgetexpon(t_printff *fl, long double val,
 
 	if (val != val || val == flt_inf)
 		return (0);
-	fl->flags[6] = (unsigned char)(val < 0);
-	if (val < 0)
-		val = -val;
 	res = 0;
 	while (val >= base)
 	{

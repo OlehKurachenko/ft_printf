@@ -6,7 +6,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 
-# define CONV_TYPE_NUMB 27
+# define CONV_TYPE_NUMB 23
 
 /*
 **	FLAGS:
@@ -39,7 +39,7 @@
 **	TYPE:
 **		-1:		not a flag
 ** 		28:		type not defined
-** 		0..27:	"%sSpdDioOu UxXcCeEfFg GaAnbrk"
+** 		0..27:	"%sSpdDioOu UxXcCeEfFn brk"
 ** 				conversions
 **
 */
@@ -174,5 +174,7 @@ unsigned char		ftprt_handle_nans(t_printff *fl,
 	const long double val, int *nptr, t_putchar f_putchar);
 
 void				ftprt_put_sign(t_printff *const fl, t_putchar f_putchar);
+
+long double			ftprt_set_fsign(t_printff *const fl, long double val);
 
 #endif

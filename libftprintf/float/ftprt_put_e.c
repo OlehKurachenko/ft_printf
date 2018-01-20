@@ -21,7 +21,7 @@ static size_t				count_length(t_printff *const fl, const int expon)
 void						ftprt_put_e(t_printff *fl, va_list *arg,
 	int *nptr, t_putchar f_putchar)
 {
-	const long double	val = ftprt_va_get_fvalue(fl, arg);
+	const long double	val = ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg));
 	long double			n_form;
 	const int			expon = ftprt_fgetexpon(fl, val, e_type_base, &n_form);
 	const size_t 		len = count_length(fl, expon);

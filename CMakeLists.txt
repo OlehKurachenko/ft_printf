@@ -123,4 +123,4 @@ add_executable(ft_printf_clion
         libftprintf/integer/ftprt_put_unumber_smpl.c
         libftprintf/float/ftprt_put_f.c
         libftprintf/float/ftprt_handle_nans.c
-        libftprintf/float/ftprt_put_sign.c)
+        libftprintf/float/ftprt_put_sign.c libftprintf/float/ftprt_set_fsign.c)
