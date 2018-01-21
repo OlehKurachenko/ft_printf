@@ -125,17 +125,23 @@ int     main()
     //printf("%d %d\n", res_p, res_ftp);
 	//printf("%d %d\n", val, val2);
 
-	t_time_t *time = construct_t_time_t_uf(1516457257);
+//	t_time_t *time = construct_t_time_t_uf(1516457257);
+//
+//	ft_printf("time: %u %u %u %u %u %u\n", time->year, time->month, time->day,
+//		time->hour, time->minute, time->second);
+//
+//	destruct_t_time_t((const t_time_t **const)&time);
+//
+//	time_t tb = 15;
+//
+//	ft_printf("|%100lb|\n", tb);
+//	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	ft_printf("time: %u %u %u %u %u %u\n", time->year, time->month, time->day,
-		time->hour, time->minute, time->second);
+	long double dv = 4655987.0000012;
 
-	destruct_t_time_t((const t_time_t **const)&time);
-
-	time_t tb = 15;
-
-	ft_printf("|%100lb|\n", tb);
-	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
+	printf("|%#20.5Lf|\n", dv);
+	printf("|%#20.5Lg|\n", dv);
+	printf("|%#20.5Le|\n", dv);
 
     //printf("|%*.0d|\n", -5, 123);
 
