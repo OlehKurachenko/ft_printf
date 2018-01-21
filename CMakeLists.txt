@@ -136,4 +136,4 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_ordered_check.c
         libftprintf/float/ftprt_put_g.c
         libftprintf/float/ftprt_put_a.c
-        )
+        libftprintf/ft_va_printf_ordered.c)
