@@ -3,7 +3,7 @@
 static void		put_afterpoint_part(long double val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
-	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
+	const unsigned char	is_capital = (unsigned char)(fl->type == 28);
 	size_t				prec;
 
 	if (fl->precision || fl->flags[0])
@@ -23,7 +23,7 @@ static void		put_afterpoint_part(long double val, const long double base,
 static void		put_prepoint_part(long double *const val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
-	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
+	const unsigned char	is_capital = (unsigned char)(fl->type == 28);
 	long double			downstep;
 
 	downstep = 1l;
@@ -43,7 +43,7 @@ static void		put_prepoint_part(long double *const val, const long double base,
 static void		put_prepoint_part_apo(long double *const val, const long double base,
 									 t_printff *const fl, t_putchar f_putchar)
 {
-	const unsigned char	is_capital = (unsigned char)(fl->len_flag == 22);
+	const unsigned char	is_capital = (unsigned char)(fl->type == 28);
 	long double			downstep;
 	size_t				len_i;
 

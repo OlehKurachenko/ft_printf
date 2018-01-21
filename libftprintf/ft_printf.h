@@ -8,7 +8,7 @@
 # include <time.h>
 # include "time_t/time_t.h"
 
-# define CONV_TYPE_NUMB 28
+# define CONV_TYPE_NUMB 30
 
 /*
 **	FLAGS:
@@ -41,7 +41,7 @@
 **	TYPE:
 **		-1:		not a flag
 ** 		28:		type not defined
-** 		0..27:	"%sSpdDioOu UxXcCeEfFn kKbBrRGg"
+** 		0..27:	"%sSpdDioOu UxXcCeEfFn kKbBrRGgAa"
 ** 				conversions
 **
 */
@@ -202,6 +202,9 @@ void				ftprt_put_e_byvalue(t_printff *const fl,
 	const long double val, int *const nprt, t_putchar f_putchar);
 
 void				ftprt_put_g(t_printff *fl, va_list *arg,
+	int *nptr, t_putchar f_putchar);
+
+void				ftprt_put_a(t_printff *fl, va_list *arg,
 	int *nptr, t_putchar f_putchar);
 
 #endif

@@ -18,7 +18,7 @@ int     ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar)
 			++res;
 		}
 		else
-			if (fl.type != 28)
+			if (fl.type != CONV_TYPE_NUMB)
 				g_type_map[fl.type](&fl, arg, &res, f_putchar);
 			else
 			{

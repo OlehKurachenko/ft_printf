@@ -133,11 +133,9 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv2 = 2342559.0;
-	char fsrt2[] = ">|%+020.5Lg|\n"; //.5
+	long double dv2 = 3453454.35453l;
+	char fsrt2[] = ">|%LA|\n"; //.5
 
-	printf("f|%20.5Lf|\n", dv2);
-	printf("e|%20.5Le|\n", dv2);
 	res_p = printf(fsrt2, dv2);
 	res_ftp = ft_printf(fsrt2, dv2);
 	printf("%d %d\n", res_p, res_ftp);

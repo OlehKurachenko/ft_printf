@@ -1,5 +1,7 @@
 #include "../ft_printf.h"
 
+// TODO remove base!
+
 static const size_t infinite_loop_number = 100000;
 
 /*
