@@ -129,4 +129,11 @@ add_executable(ft_printf_clion
         libftprintf/time_t/time_t.h
         libftprintf/date/ftprt_put_k.c
         libftprintf/date/ftprt_put_kk.c
-        libftprintf/utils/ftprt_putstr.c libftprintf/binary/ftprt_put_b.c libftprintf/binary/ftprt_put_bb.c libftprintf/binary/ftprt_put_r.c libftprintf/ftprt_ordered_check.c libftprintf/float/ftprt_put_g.c libftprintf/float/ftprt_put_a.c)
+        libftprintf/utils/ftprt_putstr.c
+        libftprintf/binary/ftprt_put_b.c
+        libftprintf/binary/ftprt_put_bb.c
+        libftprintf/binary/ftprt_put_r.c
+        libftprintf/ftprt_ordered_check.c
+        libftprintf/float/ftprt_put_g.c
+        libftprintf/float/ftprt_put_a.c
+        )

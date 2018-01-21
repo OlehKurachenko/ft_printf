@@ -63,6 +63,9 @@ typedef struct	    s_printff
 
 typedef void        (*t_type_proc)(t_printff *,va_list *, int *, t_putchar);
 
+static const char   types[CONV_TYPE_NUMB + 1]
+	= "%sSpdDioOuUxXcCeEfFnkKbBrRGgAa";
+
 const t_type_proc   g_type_map[CONV_TYPE_NUMB];
 
 int 			    ft_printf(const char *format, ...);
