@@ -41,7 +41,7 @@
 **	TYPE:
 **		-1:		not a flag
 ** 		28:		type not defined
-** 		0..27:	"%sSpdDioOu UxXcCeEfFn kKbBrRgG"
+** 		0..27:	"%sSpdDioOu UxXcCeEfFn kKbBrRGg"
 ** 				conversions
 **
 */

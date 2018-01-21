@@ -29,7 +29,7 @@ static void					call_e(t_printff *const fl, const long double val,
 	ftprt_fgetexpon(fl, n_form, g_type_base, &n_form);
 	if (!fl->flags[0])
 		fl->precision = (long long int)count_ef_precision(fl, n_form);
-	fl->type = (char)((fl->type == 26) ? 15 : 16);
+	fl->type = (char)((fl->type == 27) ? 15 : 16);
 	ftprt_put_e_byvalue(fl, val, nprt, f_putchar);
 }
 
@@ -55,7 +55,7 @@ static void					call_f(t_printff *const fl, const long double val,
 	}
 	if (!fl->flags[0])
 		fl->precision = (long long int)count_ef_precision(fl, tval);
-	fl->type = (char)((fl->type == 26) ? 17 : 18);
+	fl->type = (char)((fl->type == 27) ? 17 : 18);
 	ftprt_put_f_byvalue(fl, val, nprt, f_putchar);
 }
 
