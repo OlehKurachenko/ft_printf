@@ -24,9 +24,9 @@ static void					call_e(t_printff *const fl, const long double val,
 {
 	long double			n_form;
 
+	ftprt_fgetexpon(fl, val, g_type_base, &n_form);
 	if ((uintmax_t)n_form)
 		--fl->precision;
-	ftprt_fgetexpon(fl, n_form, g_type_base, &n_form);
 	if (!fl->flags[0])
 		fl->precision = (long long int)count_ef_precision(fl, n_form);
 	fl->type = (char)((fl->type == 27) ? 15 : 16);

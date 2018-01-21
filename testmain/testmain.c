@@ -133,7 +133,7 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv2 = 1.0/0.0;
+	long double dv2 = 2342559.0;
 	char fsrt2[] = ">|%+020.5Lg|\n"; //.5
 
 	printf("f|%20.5Lf|\n", dv2);
