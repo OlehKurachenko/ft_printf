@@ -4,6 +4,7 @@ static void					put_nan(t_printff *fl, unsigned char isNan, t_putchar f_putchar)
 {
 	if (isNan)
 	{
+		// TODO revrite this shit
 		f_putchar((char)((fl->type % 2 == 1) ? 'n' : 'N'));
 		f_putchar((char)((fl->type % 2 == 1) ? 'a' : 'A'));
 		f_putchar((char)((fl->type % 2 == 1) ? 'n' : 'N'));

@@ -75,7 +75,6 @@ static void		put_prepoint_part_apo(long double *const val, const long double bas
 void			ftprt_put_float_base(long double val, const long double base,
 	t_printff *const fl, t_putchar f_putchar)
 {
-	val += 0.5l * ft_ldpow(1l / base, (size_t)fl->precision);
 	if (fl->flags[4])
 		put_prepoint_part_apo(&val, base, fl, f_putchar);
 	else

@@ -26,6 +26,11 @@ int		ftprt_fgetexpon(t_printff *fl, long double val,
 		val *= base;
 		--res;
 	}
+	while ((val += 0.5l * ft_ldpow(1l / base, (size_t)fl->precision)) >= base)
+	{
+		val /= base;
+		++res;
+	}
 	if (val_normed)
 		*val_normed = val;
 	return ((i == infinite_loop_number) ? 0 : res);

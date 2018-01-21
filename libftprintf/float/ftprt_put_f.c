@@ -43,7 +43,8 @@ void						put_f_byvalue(t_printff *const fl,
 					   fl->width - len, f_putchar);
 	if (!fl->flags[1])
 		ftprt_put_sign(fl, f_putchar);
-	ftprt_put_float_base(val, f_type_base, fl, f_putchar);
+	ftprt_put_float_base(val + 0.5l * ft_ldpow(1l / f_type_base,
+		(size_t)fl->precision), f_type_base, fl, f_putchar);
 	if (len < fl->width && fl->flags[2])
 		ftprt_putnchar(' ', fl->width - len, f_putchar);
 	;
