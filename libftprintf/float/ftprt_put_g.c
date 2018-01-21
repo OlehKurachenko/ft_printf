@@ -6,12 +6,24 @@ static void					call_e(t_printff *const fl, const long double val,
 	int *nprt, t_putchar f_putchar)
 {
 	long double			n_form;
-	int 				expon = ftprt_fgetexpon(fl, val, g_type_base, &n_form);
 	size_t				top_len;
+	size_t				i;
 
-
-	fl->precision -= 2;
-	// TODO write
+	fl->precision -= 1;
+	ftprt_fgetexpon(fl, val, g_type_base, &n_form);
+	top_len = 0;
+	i = 0;
+	n_form = (n_form - (uintmax_t) n_form) * g_type_base;
+	while (i++ < fl->precision)
+	{
+		if ((uintmax_t) n_form)
+			top_len = i;
+		n_form = (n_form - (uintmax_t) n_form) * g_type_base;
+	}
+	if (!fl->flags[0])
+		fl->precision = (long long int)top_len;
+	fl->type = (char)((fl->type == 26) ? 15 : 16);
+	ftprt_put_e_byvalue(fl, val, nprt, f_putchar);
 }
 
 static void					call_f(t_printff *const fl, const long double val,

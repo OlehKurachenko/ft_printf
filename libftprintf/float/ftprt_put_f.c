@@ -29,7 +29,7 @@ static size_t 				count_length(t_printff *const fl, long double val)
 	return (res + fl->precision);
 }
 
-void						put_f_byvalue(t_printff *const fl,
+void						ftprt_put_f_byvalue(t_printff *const fl,
 	const long double val, int *const nprt, t_putchar f_putchar)
 {
 	const size_t 		len = count_length(fl, val);
@@ -54,6 +54,6 @@ void						put_f_byvalue(t_printff *const fl,
 void						ftprt_put_f(t_printff *fl, va_list *arg,
 	int *nptr, t_putchar f_putchar)
 {
-	put_f_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)),
-		nptr, f_putchar);
+	ftprt_put_f_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)),
+						nptr, f_putchar);
 }

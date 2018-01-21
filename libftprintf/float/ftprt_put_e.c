@@ -18,7 +18,7 @@ static size_t				count_length(t_printff *const fl, const int expon)
 	return (res + fl->precision);
 }
 
-void						put_e_byvalue(t_printff *const fl,
+void						ftprt_put_e_byvalue(t_printff *const fl,
 	const long double val, int *const nprt, t_putchar f_putchar)
 {
 	long double			n_form;
@@ -49,6 +49,6 @@ void						put_e_byvalue(t_printff *const fl,
 void						ftprt_put_e(t_printff *fl, va_list *arg,
 	int *nptr, t_putchar f_putchar)
 {
-	put_e_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)),
-		nptr, f_putchar);
+	ftprt_put_e_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)),
+						nptr, f_putchar);
 }
