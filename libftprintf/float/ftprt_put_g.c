@@ -2,26 +2,33 @@
 
 static const long double	g_type_base = 10l;
 
-static void					call_e(t_printff *const fl, const long double val,
-	int *nprt, t_putchar f_putchar)
+static size_t				count_ef_precision(t_printff *const fl, long double n_form)
 {
-	long double			n_form;
 	size_t				top_len;
 	size_t				i;
 
-	fl->precision -= 1;
-	ftprt_fgetexpon(fl, val, g_type_base, &n_form);
 	top_len = 0;
 	i = 0;
-	n_form = (n_form - (uintmax_t) n_form) * g_type_base;
+	n_form = (n_form - (uintmax_t)n_form) * g_type_base;
 	while (i++ < fl->precision)
 	{
 		if ((uintmax_t) n_form)
 			top_len = i;
-		n_form = (n_form - (uintmax_t) n_form) * g_type_base;
+		n_form = (n_form - (uintmax_t)n_form) * g_type_base;
 	}
+	return (top_len);
+}
+
+static void					call_e(t_printff *const fl, const long double val,
+	int *nprt, t_putchar f_putchar)
+{
+	long double			n_form;
+
+	if ((uintmax_t)n_form)
+		--fl->precision;
+	ftprt_fgetexpon(fl, n_form, g_type_base, &n_form);
 	if (!fl->flags[0])
-		fl->precision = (long long int)top_len;
+		fl->precision = (long long int)count_ef_precision(fl, n_form);
 	fl->type = (char)((fl->type == 26) ? 15 : 16);
 	ftprt_put_e_byvalue(fl, val, nprt, f_putchar);
 }
@@ -29,7 +36,27 @@ static void					call_e(t_printff *const fl, const long double val,
 static void					call_f(t_printff *const fl, const long double val,
 	int *nprt, t_putchar f_putchar)
 {
-	// TODO write
+	long double		tval;
+	long double		downpow;
+
+	tval = val + 0.5l * ft_ldpow(1l / g_type_base,
+		(size_t)fl->precision);
+	downpow = 1l;
+	while ((tval / downpow) >= g_type_base)
+		downpow *= g_type_base;
+	if ((uintmax_t)tval)
+		--fl->precision;
+	while (tval >= g_type_base)
+	{
+		tval -= ((uintmax_t)(tval / downpow)) * downpow;
+		if (fl->precision)
+			--fl->precision;
+		downpow /= g_type_base;
+	}
+	if (!fl->flags[0])
+		fl->precision = (long long int)count_ef_precision(fl, tval);
+	fl->type = (char)((fl->type == 26) ? 17 : 18);
+	ftprt_put_f_byvalue(fl, val, nprt, f_putchar);
 }
 
 void						ftprt_put_g(t_printff *fl, va_list *arg,
