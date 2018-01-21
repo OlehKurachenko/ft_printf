@@ -89,11 +89,8 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	int val = 0, val2 = 0;
-	int *v = &val, *v1 = &val2;
-
-	//char fstr[] = "|%1.Lf%n|\n";
-	//long double dv = 345.234; //1.5
+	char fstr[] = "|%1.0Le|\n";
+	long double dv = 0.99; //1.5
 	//int iii = 42342346
 	//int tempin = (int)dv;
 
@@ -120,10 +117,9 @@ int     main()
 
 	//char t = '1';
 
-    //res_p = printf(fstr, dv, v);
-    //res_ftp = ft_printf(fstr, dv, v1);
-    //printf("%d %d\n", res_p, res_ftp);
-	//printf("%d %d\n", val, val2);
+    res_p = printf(fstr, dv);
+    res_ftp = ft_printf(fstr, dv);
+    printf("%d %d\n", res_p, res_ftp);
 
 //	t_time_t *time = construct_t_time_t_uf(1516457257);
 //
@@ -137,11 +133,13 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv = 4655987.0000012;
+	long double dv2 = 4655987.0000012;
 
-	printf("|%#20.5Lf|\n", dv);
-	printf("|%#20.5Lg|\n", dv);
-	printf("|%#20.5Le|\n", dv);
+	printf("|%#20.5Lf|\n", dv2);
+	printf("|%#20.5Lg|\n", dv2);
+	printf("|%#20.5Le|\n", dv2);
+
+
 
     //printf("|%*.0d|\n", -5, 123);
 

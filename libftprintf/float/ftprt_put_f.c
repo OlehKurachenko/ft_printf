@@ -29,13 +29,12 @@ static size_t 				count_length(t_printff *const fl, long double val)
 	return (res + fl->precision);
 }
 
-void						ftprt_put_f(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar)
+void						put_f_byvalue(t_printff *const fl,
+	const long double val, int *const nprt, t_putchar f_putchar)
 {
-	const long double	val = ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg));
 	const size_t 		len = count_length(fl, val);
 
-	if (ftprt_handle_nans(fl, val, nptr, f_putchar))
+	if (ftprt_handle_nans(fl, val, nprt, f_putchar))
 		return ;
 	if (fl->flags[1])
 		ftprt_put_sign(fl, f_putchar);
@@ -48,5 +47,12 @@ void						ftprt_put_f(t_printff *fl, va_list *arg,
 	if (len < fl->width && fl->flags[2])
 		ftprt_putnchar(' ', fl->width - len, f_putchar);
 	;
-	*nptr += ft_max_size_t(fl->width, len);
+	*nprt += ft_max_size_t(fl->width, len);
+}
+
+void						ftprt_put_f(t_printff *fl, va_list *arg,
+	int *nptr, t_putchar f_putchar)
+{
+	put_f_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)),
+		nptr, f_putchar);
 }

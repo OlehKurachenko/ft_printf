@@ -195,4 +195,10 @@ void				ftprt_put_bb(t_printff *fl, va_list *arg,
 void				ftprt_put_r(t_printff *fl, va_list *arg,
 								int *nprt, t_putchar f_putchar);
 
+void						put_f_byvalue(t_printff *const fl,
+	const long double val, int *const nprt, t_putchar f_putchar);
+
+void						put_e_byvalue(t_printff *const fl,
+	const long double val, int *const nprt, t_putchar f_putchar);
+
 #endif
