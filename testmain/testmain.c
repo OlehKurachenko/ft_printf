@@ -152,6 +152,14 @@ int     main()
 	ft_fprintf(f, "Hello\nThis is my file\nIt's fd is %d\n", f);
 	ft_fprintf(f, "I love doing shit like this!\n435=%u\n", 435);
 
+	char *dstr;
+
+	ft_sprintf(&dstr, "Hello, %s, fd used was %d", "dear user", f);
+
+	ft_printf("|%s|", dstr);
+
+	free(dstr);
+
 	close(f);
 
     return (0);

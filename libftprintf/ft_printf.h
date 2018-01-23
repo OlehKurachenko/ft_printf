@@ -73,6 +73,8 @@ int 			    ft_printf(const char *format, ...);
 
 int					ft_fprintf(const int fd, const char *format, ...);
 
+int					ft_sprintf(const char **const str, const char *format, ...);
+
 unsigned char		ordered_chech(const char *fstr);
 
 int                 ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar);
