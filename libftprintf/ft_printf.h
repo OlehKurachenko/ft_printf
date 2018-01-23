@@ -4,7 +4,7 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <time.h>
-# include "time_t/time_t.h"
+# include "time_t.h"
 # include "../libft/libft.h"
 
 # define CONV_TYPE_NUMB 30

@@ -17,59 +17,59 @@ CC = gcc -Wall -Wextra -Werror
 
 LC = ar rc
 
-SRC_N = integer/ftprt_highest_byte.c \
-		integer/ftprt_number_len.c \
-		integer/ftprt_put_number.c \
-		integer/ftprt_put_d.c \
-		integer/ftprt_put_dd.c \
-		integer/ftprt_put_u.c \
-		integer/ftprt_va_get_uvalue.c \
-		integer/ftprt_put_unumber.c \
-		integer/ftprt_unumber_len.c \
-		integer/ftprt_put_uu.c \
-		integer/ftprt_unumber_baselen.c \
-		integer/ftprt_put_x.c \
-		integer/ftprt_put_xnumber.c \
-		integer/ftprt_put_p.c \
-		integer/ftprt_put_o.c \
-		integer/ftprt_put_onumber.c \
-		integer/ftprt_put_oo.c \
-		integer/ftprt_put_unumber_smpl.c \
-		character/ftprt_putwchar.c \
-		character/ftprt_put_dblpercent.c \
-		character/ftprt_put_s.c \
-		character/ftprt_putnchar.c \
-		character/ftprt_put_ss.c \
-		character/ftprt_put_c.c \
-		character/ftprt_put_cc.c \
-		float/ftprt_put_e.c \
-		float/ftprt_va_get_fvalue.c \
-		float/ftprt_fgetexpon.c \
-		float/ftprt_put_float_base.c \
-		float/ftprt_put_f.c \
-		float/ftprt_handle_nans.c \
-		float/ftprt_put_sign.c \
-		float/ftprt_set_fsign.c \
-		float/ftprt_put_g.c \
-		float/ftprt_put_a.c \
-		utils/ftprt_getupdecimal.c \
-		utils/ftprt_putstr.c \
-		binary/ftprt_put_b.c \
-		binary/ftprt_put_bb.c \
-		binary/ftprt_put_r.c \
-		date/ftprt_put_k.c \
-		date/ftprt_put_kk.c \
-		time_t/time_t.c \
-		flags_analysis/ftprt_set_flags.c \
-		flags_analysis/ftprt_set_type.c \
-		flags_analysis/ftprt_set_flags_ordered.c \
-		flags_analysis/ftprt_set_fflags.c \
-		flags_analysis/ftprt_set_fwidth.c \
-		flags_analysis/ftprt_set_flen_flag.c \
-		flags_analysis/ftprt_set_fprecision.c \
-		output_modules/ftprt_buffered_putchar.c \
-		output_modules/ftprt_buffered_putchar_fd.c \
-		output_modules/ftprt_buffered_putchar_str.c \
+SRC_N = ftprt_highest_byte.c \
+		ftprt_number_len.c \
+		ftprt_put_number.c \
+		ftprt_put_d.c \
+		ftprt_put_dd.c \
+		ftprt_put_u.c \
+		ftprt_va_get_uvalue.c \
+		ftprt_put_unumber.c \
+		ftprt_unumber_len.c \
+		ftprt_put_uu.c \
+		ftprt_unumber_baselen.c \
+		ftprt_put_x.c \
+		ftprt_put_xnumber.c \
+		ftprt_put_p.c \
+		ftprt_put_o.c \
+		ftprt_put_onumber.c \
+		ftprt_put_oo.c \
+		ftprt_put_unumber_smpl.c \
+		ftprt_putwchar.c \
+		ftprt_put_dblpercent.c \
+		ftprt_put_s.c \
+		ftprt_putnchar.c \
+		ftprt_put_ss.c \
+		ftprt_put_c.c \
+		ftprt_put_cc.c \
+		ftprt_put_e.c \
+		ftprt_va_get_fvalue.c \
+		ftprt_fgetexpon.c \
+		ftprt_put_float_base.c \
+		ftprt_put_f.c \
+		ftprt_handle_nans.c \
+		ftprt_put_sign.c \
+		ftprt_set_fsign.c \
+		ftprt_put_g.c \
+		ftprt_put_a.c \
+		ftprt_getupdecimal.c \
+		ftprt_putstr.c \
+		ftprt_put_b.c \
+		ftprt_put_bb.c \
+		ftprt_put_r.c \
+		ftprt_put_k.c \
+		ftprt_put_kk.c \
+		time_t.c \
+		ftprt_set_flags.c \
+		ftprt_set_type.c \
+		ftprt_set_flags_ordered.c \
+		ftprt_set_fflags.c \
+		ftprt_set_fwidth.c \
+		ftprt_set_flen_flag.c \
+		ftprt_set_fprecision.c \
+		ftprt_buffered_putchar.c \
+		ftprt_buffered_putchar_fd.c \
+		ftprt_buffered_putchar_str.c \
 		ft_printf.c \
 		ft_va_printf.c \
 		ftprt_put_n.c \
@@ -80,34 +80,20 @@ SRC_N = integer/ftprt_highest_byte.c \
 
 SRC = $(addprefix libftprintf/, $(SRC_N))
 
-OBJ_N = $(SRC_N:.c=.o)
-
-OBJ = $(addprefix libftprintf/obj/, $(OBJ_N))
+OBJ = $(SRC:.c=.o)
 
 LIBS = libft/libft.a
 
 all: $(NAME)
 
-libftprintf/obj/%.o : libftprintf/%.c
+libftprintf/%.o : libftprintf/%.c
 	$(CC) -c $< -o $@
 
-makeobjdirs:
-	mkdir -p libftprintf/obj
-	mkdir -p libftprintf/obj/integer
-	mkdir -p libftprintf/obj/character
-	mkdir -p libftprintf/obj/float
-	mkdir -p libftprintf/obj/utils
-	mkdir -p libftprintf/obj/binary
-	mkdir -p libftprintf/obj/date
-	mkdir -p libftprintf/obj/time_t
-	mkdir -p libftprintf/obj/flags_analysis
-	mkdir -p libftprintf/obj/output_modules
-
-$(NAME): liball makeobjdirs $(OBJ)
-	$(LC) $(NAME) $(OBJ)
+$(NAME): liball $(OBJ)
+	$(LC) $(NAME) $(LIBS) $(OBJ)
 
 clean: libclean
-	rm -rf libftprintf/obj
+	rm -f libftprintf/*.o
 
 fclean: clean libfclean
 	rm -f $(NAME)
