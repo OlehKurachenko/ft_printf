@@ -55,6 +55,7 @@ typedef struct	    s_printff
 	long long 		precision;
 	int				len_flag;
 	char			type;
+	short unsigned	arg;
 }				    t_printff;
 
 /*
@@ -70,11 +71,25 @@ const t_type_proc   g_type_map[CONV_TYPE_NUMB];
 
 int 			    ft_printf(const char *format, ...);
 
+unsigned char		ordered_chech(const char *fstr);
+
 int                 ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar);
+
+int     			ft_va_printf_ordered(const char *format,
+	va_list *arg, t_putchar f_putchar);
 
 /*
 **	FLAG MANAGMENT
 */
+
+static const char	*ftprt_set_fflags(t_printff *fl, const char *pos);
+
+static const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg);
+
+static const char	*ftprt_set_flen_flag(t_printff *fl, const char *pos);
+
+static const char   *ftprt_set_fprecision(t_printff *fl, const char *pos,
+										  va_list *arg);
 
 const char		    *ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg);
 

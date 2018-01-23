@@ -87,12 +87,12 @@ add_executable(ft_printf_clion
         testmain/testmain.c
         libftprintf/ft_printf.h
         libftprintf/ft_printf.c
-        libftprintf/ftprt_set_flags.c
+        libftprintf/flags_analysis/ftprt_set_flags.c
         libftprintf/integer/ftprt_highest_byte.c
         libftprintf/character/ftprt_putwchar.c
-        libftprintf/ftprt_set_type.c
+        libftprintf/flags_analysis/ftprt_set_type.c
         libftprintf/ft_va_printf.c
-        libftprintf/ftprt_put_dblpercent.c
+        libftprintf/character/ftprt_put_dblpercent.c
         libftprintf/character/ftprt_put_s.c
         libftprintf/character/ftprt_putnchar.c
         libftprintf/character/ftprt_put_ss.c
@@ -136,4 +136,4 @@ add_executable(ft_printf_clion
         libftprintf/ftprt_ordered_check.c
         libftprintf/float/ftprt_put_g.c
         libftprintf/float/ftprt_put_a.c
-        libftprintf/ft_va_printf_ordered.c)
+        libftprintf/ft_va_printf_ordered.c libftprintf/flags_analysis/ftprt_set_flags_ordered.c libftprintf/flags_analysis/ftprt_set_fflags.c libftprintf/flags_analysis/ftprt_set_fwidth.c libftprintf/flags_analysis/ftprt_set_flen_flag.c libftprintf/flags_analysis/ftprt_set_fprecision.c)

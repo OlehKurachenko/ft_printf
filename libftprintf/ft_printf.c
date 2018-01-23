@@ -40,12 +40,10 @@ int					ft_printf(const char *format, ...)
 	int                         res;
 
 	va_start(vl, format);
-	// TODO:	check is a format string manually ordered, if yes - call
-	//			ft_lv_orderprintf
-	//ft_lv_orderprintf();
-	// TODO correct error exit & call
-
-	res = ft_va_printf(format, &vl, &ft_putchar);
+	if (ordered_chech(format))
+		res = ft_va_printf_ordered(format, &vl, &ft_putchar);
+	else
+		res = ft_va_printf(format, &vl, &ft_putchar);
 	va_end(vl);
 	return (res);
 }

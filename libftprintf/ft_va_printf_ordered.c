@@ -1,8 +1,8 @@
 #include "ft_printf.h"
 
-int     ft_va_printf_ordered(const char *format, va_list *arg, t_putchar f_putchar)
+int     				ft_va_printf_ordered(const char *format,
+	va_list *arg, t_putchar f_putchar)
 {
-	// TODO refactor
 	t_printff		fl;
 	const char      *pos = format;
 	const char      *prev_pos;
@@ -19,12 +19,15 @@ int     ft_va_printf_ordered(const char *format, va_list *arg, t_putchar f_putch
 			++res;
 		}
 		else
-		if (fl.type != CONV_TYPE_NUMB)
-			g_type_map[fl.type](&fl, arg, &res, f_putchar);
-		else
-		{
-			// TODO printf incorrect flag
-		}
+			// TODO write and add here carousel
+			if (fl.type != CONV_TYPE_NUMB && fl.arg != 0)
+				g_type_map[fl.type](&fl, arg, &res, f_putchar);
+			else
+			{
+				// TODO printf incorrect flag
+			}
+		if (fl.arg == 0)
+			return (res);
 	}
 	return (res);
 }

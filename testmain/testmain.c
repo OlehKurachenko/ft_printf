@@ -133,12 +133,14 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv2 = 3453454.35453l;
+	long double dv2 = 3434543553453453345346345345645534534645634454.354453453l;
 	char fsrt2[] = ">|%LA|\n"; //.5
 
 	res_p = printf(fsrt2, dv2);
 	res_ftp = ft_printf(fsrt2, dv2);
 	printf("%d %d\n", res_p, res_ftp);
+
+	printf("%Lf -> %f\n", dv2, (double)dv2);
 
     //printf("|%*.0d|\n", -5, 123);
 

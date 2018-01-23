@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 const char      *ftprt_set_type(t_printff *fl, const char *pos)
 {
