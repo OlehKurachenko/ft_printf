@@ -7,6 +7,7 @@
 # include <stdint.h>
 # include <time.h>
 # include "time_t/time_t.h"
+# include "output_modules/ftprt_buffered_putchar.h"
 
 # define CONV_TYPE_NUMB 30
 

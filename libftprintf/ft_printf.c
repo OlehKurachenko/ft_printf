@@ -41,9 +41,10 @@ int					ft_printf(const char *format, ...)
 
 	va_start(vl, format);
 	if (ordered_chech(format))
-		res = ft_va_printf_ordered(format, &vl, &ft_putchar);
+		res = ft_va_printf_ordered(format, &vl, &ftprt_buffered_putchar);
 	else
-		res = ft_va_printf(format, &vl, &ft_putchar);
+		res = ft_va_printf(format, &vl, &ftprt_buffered_putchar);
 	va_end(vl);
+	ftprt_buffer_flush();
 	return (res);
 }

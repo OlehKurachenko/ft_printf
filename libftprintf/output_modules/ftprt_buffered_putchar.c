@@ -5,7 +5,7 @@ static size_t	buff_i = 0;
 
 void ftprt_buffered_putchar(char c) {
 	buff[buff_i++] = c;
-	if (buff_i == FT_PRINTF_BUFFER_SIZE)
+	if (buff_i == FT_PRINTF_BUFFER_SIZE || c == '\n')
 		ftprt_buffer_flush();
 }
 

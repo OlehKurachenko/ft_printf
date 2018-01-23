@@ -5,10 +5,8 @@ static size_t   count_putput_len(const unsigned int *s, size_t precision,
 {
 	static size_t   size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
 								3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
-	size_t          i;
 	size_t          res;
 
-	i = 0;
 	res = 0;
 	*num_val = 0;
 	while (*s && (precision == -1 ||
@@ -38,7 +36,7 @@ static void		put_wstring(t_printff *fl, va_list *arg, int *nptr,
 	const unsigned int  *s = va_arg(*arg, unsigned int *);
 	size_t              num_wchars;
 	const size_t        prt_num = count_putput_len(s,
-			fl->precision, &num_wchars);
+		(size_t)fl->precision, &num_wchars);
 	size_t              i;
 
 	if (prt_num < fl->width && !(fl->flags[2]))
@@ -68,7 +66,7 @@ static void        put_wstring_simple(t_printff *fl,
 	i = 0;
 	while (i < len)
 	{
-		f_putchar(s[i]);
+		f_putchar((char)s[i]);
 		++i;
 	}
 	if (fl->width > len && (fl->flags[2]))
