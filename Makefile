@@ -90,7 +90,8 @@ libftprintf/%.o : libftprintf/%.c
 	$(CC) -c $< -o $@
 
 $(NAME): liball $(OBJ)
-	$(LC) $(NAME) $(LIBS) $(OBJ)
+	cp libft/libft.a libftprintf.a
+	ar -q libftprintf.a $(OBJ)
 
 clean: libclean
 	rm -f libftprintf/*.o
