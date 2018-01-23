@@ -1,12 +1,11 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "../libft/libft.h"
-
 # include <stdarg.h>
 # include <stdint.h>
 # include <time.h>
 # include "time_t/time_t.h"
+# include "../libft/libft.h"
 
 # define CONV_TYPE_NUMB 30
 

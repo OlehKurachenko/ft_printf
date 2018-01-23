@@ -143,4 +143,9 @@ add_executable(ft_printf_clion
         libftprintf/flags_analysis/ftprt_set_flen_flag.c
         libftprintf/flags_analysis/ftprt_set_fprecision.c
         libftprintf/output_modules/ftprt_buffered_putchar.c
-        libftprintf/output_modules/ftprt_buffered_putchar_fd.c libftprintf/output_modules/ftprt_buffered_putchar_fd.h libftprintf/ft_fprintf.c libftprintf/output_modules/ftprt_buffered_putchar_str.c libftprintf/output_modules/ftprt_buffered_putchar_str.h libftprintf/ft_sprintf.c)
+        libftprintf/output_modules/ftprt_buffered_putchar_fd.c
+        libftprintf/output_modules/ftprt_buffered_putchar_fd.h
+        libftprintf/ft_fprintf.c
+        libftprintf/output_modules/ftprt_buffered_putchar_str.c
+        libftprintf/output_modules/ftprt_buffered_putchar_str.h
+        libftprintf/ft_sprintf.c)

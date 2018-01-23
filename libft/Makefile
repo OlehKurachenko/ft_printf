@@ -98,7 +98,7 @@ SRC =	ft_strlen.c \
 
 OBJ = $(SRC:.c=.o)
 
-INCL_H = libft.h
+INCL_H = lib.h
 
 all: $(NAME)
 
