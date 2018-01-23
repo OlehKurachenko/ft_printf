@@ -3,7 +3,7 @@
 /*
 ** fl->len_flag used as temporary variable
 */
-static const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg)
+const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg)
 {
 	fl->width = 0;
 	if (*pos == '*')

@@ -82,16 +82,18 @@ int     			ft_va_printf_ordered(const char *format,
 **	FLAG MANAGMENT
 */
 
-static const char	*ftprt_set_fflags(t_printff *fl, const char *pos);
+const char	*ftprt_set_fflags(t_printff *fl, const char *pos);
 
-static const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg);
+const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg);
 
-static const char	*ftprt_set_flen_flag(t_printff *fl, const char *pos);
+const char	*ftprt_set_flen_flag(t_printff *fl, const char *pos);
 
-static const char   *ftprt_set_fprecision(t_printff *fl, const char *pos,
+const char   *ftprt_set_fprecision(t_printff *fl, const char *pos,
 										  va_list *arg);
 
 const char		    *ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg);
+
+const char			*ftprt_set_flags_ordered(t_printff *fl, const char *pos, va_list *arg);
 
 const char          *ftprt_set_type(t_printff *fl, const char *pos);
 

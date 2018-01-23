@@ -14,7 +14,7 @@ const char	*set_index(const char *pos, t_printff *const fl)
 	return (pos);
 }
 
-const char	*ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg)
+const char	*ftprt_set_flags_ordered(t_printff *fl, const char *pos, va_list *arg)
 {
 	if (*pos != '%')
 	{

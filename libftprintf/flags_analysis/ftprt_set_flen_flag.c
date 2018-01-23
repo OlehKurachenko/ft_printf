@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-static const char	*ftprt_set_flen_flag(t_printff *fl, const char *pos)
+const char	*ftprt_set_flen_flag(t_printff *fl, const char *pos)
 {
 	if (*pos == 'l' && *(pos + 1) == 'l')
 		return (pos + ((fl->len_flag = 0) + 2));

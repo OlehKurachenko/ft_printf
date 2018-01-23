@@ -3,7 +3,7 @@
 /*
 ** fl->len_flag used as temporary variable
 */
-static const char   *ftprt_set_fprecision(t_printff *fl, const char *pos,
+const char   *ftprt_set_fprecision(t_printff *fl, const char *pos,
 								   va_list *arg)
 {
 	if (*pos == '.')

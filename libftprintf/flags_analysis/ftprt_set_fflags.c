@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-static const char	*ftprt_set_fflags(t_printff *fl, const char *pos)
+const char	*ftprt_set_fflags(t_printff *fl, const char *pos)
 {
 	ft_memset(fl->flags, 0, 8);
 	while (*pos == ' ' || *pos == '-' || *pos == '+'
