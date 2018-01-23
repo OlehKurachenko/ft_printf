@@ -31,8 +31,8 @@ void		ftprt_put_o(t_printff *fl, va_list *arg, int *nptr,
 
 
 	precision_case(fl, len, val);
-	used_len = (fl->precision == -1 || len > fl->precision)
-			   ? len : fl->precision;
+	used_len = (fl->precision == -1 || len >
+		(long long unsigned)fl->precision) ? len : fl->precision;
 	if (used_len < fl->width && (!fl->flags[2]))
 		ftprt_putnchar((fl->flags[1]) ? '0' : ' ',
 					   fl->width - used_len, f_putchar);

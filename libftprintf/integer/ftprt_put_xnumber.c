@@ -11,7 +11,7 @@ static void             ftprt_put_xnumber_apo(uintmax_t val, size_t len,
 		f_putchar('0');
 		f_putchar((char)((fl->type == 11) ? 'x' : 'X'));
 	}
-	if (fl->precision != -1 && (fl->precision > len))
+	if (fl->precision != -1 && (fl->precision > (long long)len))
 		ftprt_putnchar('0', fl->precision - len, f_putchar);
 	if (val || fl->precision != 0)
 	{
@@ -42,7 +42,7 @@ void                    ftprt_put_xnumber(uintmax_t val, size_t len,
 		f_putchar('0');
 		f_putchar((char)((fl->type == 11) ? 'x' : 'X'));
 	}
-	if (fl->precision != -1 && (fl->precision > len))
+	if (fl->precision != -1 && (fl->precision > (long long)len))
 		ftprt_putnchar('0',
 					   fl->precision - len, f_putchar);
 	if (val || fl->precision != 0)

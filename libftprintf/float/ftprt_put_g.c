@@ -10,7 +10,7 @@ static size_t				count_ef_precision(t_printff *const fl, long double n_form)
 	top_len = 0;
 	i = 0;
 	n_form = (n_form - (uintmax_t)n_form) * g_type_base;
-	while (i++ < fl->precision)
+	while ((long long)i++ < fl->precision)
 	{
 		if ((uintmax_t) n_form)
 			top_len = i;

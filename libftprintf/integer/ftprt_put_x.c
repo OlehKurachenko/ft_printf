@@ -22,8 +22,8 @@ void        ftprt_put_x(t_printff *fl, va_list *arg,
         fl->precision = fl->width - ((fl->flags[0]) ? 2 : 0);
         fl->width = 0;
     }
-    used_len = (fl->precision == -1 || len > fl->precision)
-               ? len : fl->precision;
+    used_len = (fl->precision == -1 ||
+			(long long)len > fl->precision) ? len : fl->precision;
     used_len += (fl->flags[0]) ? 2 : 0;
     if (used_len < fl->width && (!fl->flags[2]))
         ftprt_putnchar((fl->flags[1]) ? '0' : ' ',

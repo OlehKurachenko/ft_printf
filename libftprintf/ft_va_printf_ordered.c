@@ -13,7 +13,7 @@ static void				put_va_value(t_printff *const fl, va_list *const arg,
 		va_arg(va_tmp, long long unsigned);
 		++i;
 	}
-	g_type_map[fl->type](fl, &va_tmp, res, f_putchar);
+	g_type_map[(size_t)fl->type](fl, &va_tmp, res, f_putchar);
 }
 
 int     				ft_va_printf_ordered(const char *format,

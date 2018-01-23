@@ -8,7 +8,7 @@ static void             ftprt_put_onumber_apo(uintmax_t val, size_t len,
     uintmax_t       pw;
     size_t          delim_c;
 
-    if (fl->precision != -1 && (fl->precision > len))
+    if (fl->precision != -1 && ((long long unsigned)fl->precision > len))
         ftprt_putnchar('0', fl->precision - len, f_putchar);
     if (val || fl->precision != 0)
     {
@@ -34,7 +34,7 @@ void                    ftprt_put_onumber(uintmax_t val, size_t len,
 
     if (fl->flags[4])
         return (ftprt_put_onumber_apo(val, len, fl, f_putchar));
-    if (fl->precision != -1 && (fl->precision > len))
+    if (fl->precision != -1 && ((long long unsigned)fl->precision > len))
         ftprt_putnchar('0',
                        fl->precision - len, f_putchar);
     if (val || fl->precision != 0)

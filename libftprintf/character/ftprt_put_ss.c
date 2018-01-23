@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-static size_t   count_putput_len(const unsigned int *s, size_t precision,
+static size_t   count_putput_len(const unsigned int *s, long long precision,
 								 size_t *num_val)
 {
 	static size_t   size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
@@ -10,7 +10,7 @@ static size_t   count_putput_len(const unsigned int *s, size_t precision,
 	res = 0;
 	*num_val = 0;
 	while (*s && (precision == -1 ||
-			precision >= size[ftprt_highest_byte(*s)]))
+			precision >= (long long)size[ftprt_highest_byte(*s)]))
 	{
 		precision -= size[ftprt_highest_byte(*s)];
 		res += size[ftprt_highest_byte(*s)];
@@ -36,7 +36,7 @@ static void		put_wstring(t_printff *fl, va_list *arg, int *nptr,
 	const unsigned int  *s = va_arg(*arg, unsigned int *);
 	size_t              num_wchars;
 	const size_t        prt_num = count_putput_len(s,
-		(size_t)fl->precision, &num_wchars);
+		fl->precision, &num_wchars);
 	size_t              i;
 
 	if (prt_num < fl->width && !(fl->flags[2]))

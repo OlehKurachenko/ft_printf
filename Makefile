@@ -91,17 +91,19 @@ all: $(NAME)
 libftprintf/obj/%.o : libftprintf/%.c
 	$(CC) -c $< -o $@
 
-$(NAME): liball $(OBJ)
-	mkdir libftprintf/obj
-	mkdir libftprintf/obj/integer
-	mkdir libftprintf/obj/character
-	mkdir libftprintf/obj/float
-	mkdir libftprintf/obj/utils
-	mkdir libftprintf/obj/binary
-	mkdir libftprintf/obj/date
-	mkdir libftprintf/obj/time_t
-	mkdir libftprintf/obj/flags_analysis
-	mkdir libftprintf/obj/output_modules
+makeobjdirs:
+	mkdir -p libftprintf/obj
+	mkdir -p libftprintf/obj/integer
+	mkdir -p libftprintf/obj/character
+	mkdir -p libftprintf/obj/float
+	mkdir -p libftprintf/obj/utils
+	mkdir -p libftprintf/obj/binary
+	mkdir -p libftprintf/obj/date
+	mkdir -p libftprintf/obj/time_t
+	mkdir -p libftprintf/obj/flags_analysis
+	mkdir -p libftprintf/obj/output_modules
+
+$(NAME): liball makeobjdirs $(OBJ)
 	$(LC) $(NAME) $(OBJ)
 
 clean: libclean

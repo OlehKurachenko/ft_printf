@@ -17,7 +17,7 @@ int     ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar)
 		}
 		else
 			if (fl.type != CONV_TYPE_NUMB)
-				g_type_map[fl.type](&fl, arg, &res, f_putchar);
+				g_type_map[(size_t)fl.type](&fl, arg, &res, f_putchar);
 	}
 	return (res);
 }
