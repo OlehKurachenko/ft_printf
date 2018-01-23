@@ -7,10 +7,10 @@ static void				put_va_value(t_printff *const fl, va_list *const arg,
 	short unsigned	i;
 
 	va_copy(va_tmp, *arg);
-	i = 0;
+	i = 1;
 	while (i <fl->arg)
 	{
-		va_arg(va_tmp, unsigned);
+		va_arg(va_tmp, long long unsigned);
 		++i;
 	}
 	g_type_map[fl->type](fl, &va_tmp, res, f_putchar);
@@ -21,13 +21,12 @@ int     				ft_va_printf_ordered(const char *format,
 {
 	t_printff		fl;
 	const char      *pos = format;
-	const char      *prev_pos;
 	int             res;
 
 	res = 0;
 	while (*pos)
 	{
-		pos = ftprt_set_flags_ordered(&fl, prev_pos = pos, arg);
+		pos = ftprt_set_flags_ordered(&fl, pos, arg);
 		if (fl.type == -1)
 		{
 			f_putchar(*(pos++));
@@ -36,10 +35,6 @@ int     				ft_va_printf_ordered(const char *format,
 		else
 			if (fl.type != CONV_TYPE_NUMB && fl.arg != 0)
 				put_va_value(&fl, arg, f_putchar, &res);
-			else
-			{
-				// TODO printf incorrect flag
-			}
 		if (fl.type != -1 && !fl.arg)
 			return (res);
 	}

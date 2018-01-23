@@ -11,7 +11,7 @@ const char	*set_index(const char *pos, t_printff *const fl)
 		++pos;
 	}
 	fl->arg = (unsigned short)((*pos == '$') ? res : 0);
-	return (pos);
+	return (pos + 1);
 }
 
 const char	*ftprt_set_flags_ordered(t_printff *fl, const char *pos, va_list *arg)

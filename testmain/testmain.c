@@ -142,6 +142,8 @@ int     main()
 
 	printf("%Lf -> %f\n", dv2, (double)dv2);
 
+	ft_printf("$= |%3$d %2$d %1$d|\n", 34534, 24, 464);
+
     //printf("|%*.0d|\n", -5, 123);
 
     return (0);
