@@ -11,7 +11,7 @@ static void ftprt_put_number_apo(intmax_t val, size_t len, t_printff *fl,
         f_p((char) ((fl->flags[3]) ? ' ' : '+'));
     if (val < 0)
         f_p('-');
-    if (fl->precision != -1 && (fl->precision > len))
+    if (fl->precision != -1 && ((long long unsigned)fl->precision > len))
         ftprt_putnchar('0', fl->precision - len, f_p);
     if ((temp = (uintmax_t)((val >= 0) ? val : -val)) || fl->precision != 0)
     {
@@ -42,7 +42,7 @@ void        ftprt_put_number(intmax_t val, size_t len, t_printff *fl,
 		f_putchar((char) ((fl->flags[3]) ? ' ' : '+'));
 	if (val < 0)
 		f_putchar('-');
-	if (fl->precision != -1 && (fl->precision > len))
+	if (fl->precision != -1 && ((long long unsigned)fl->precision > len))
         ftprt_putnchar('0', fl->precision - len, f_putchar);
 	if ((temp = (uintmax_t)((val >= 0) ? val : -val)) || fl->precision != 0)
 	{

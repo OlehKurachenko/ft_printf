@@ -35,7 +35,7 @@ void                ftprt_put_d(t_printff *fl, va_list *arg,
 	else
 	if (fl->width > 0 && fl->flags[1])
 		fl->precision = fl->width - (val < 0 || fl->flags[3] || fl->flags[5]);
-	used_len = (fl->precision == -1 || len > fl->precision)
+	used_len = (fl->precision == -1 || len > (long long unsigned)fl->precision)
 			   ? len : fl->precision;
 	if (val < 0 || fl->flags[3] || fl->flags[5])
 		++used_len;

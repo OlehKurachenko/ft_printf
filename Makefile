@@ -92,6 +92,16 @@ libftprintf/obj/%.o : libftprintf/%.c
 	$(CC) -c $< -o $@
 
 $(NAME): liball $(OBJ)
+	mkdir libftprintf/obj
+	mkdir libftprintf/obj/integer
+	mkdir libftprintf/obj/character
+	mkdir libftprintf/obj/float
+	mkdir libftprintf/obj/utils
+	mkdir libftprintf/obj/binary
+	mkdir libftprintf/obj/date
+	mkdir libftprintf/obj/time_t
+	mkdir libftprintf/obj/flags_analysis
+	mkdir libftprintf/obj/output_modules
 	$(LC) $(NAME) $(OBJ)
 
 clean: libclean
