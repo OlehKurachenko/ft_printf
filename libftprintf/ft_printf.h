@@ -7,7 +7,6 @@
 # include <stdint.h>
 # include <time.h>
 # include "time_t/time_t.h"
-# include "output_modules/ftprt_buffered_putchar.h"
 
 # define CONV_TYPE_NUMB 30
 
@@ -72,6 +71,8 @@ const t_type_proc   g_type_map[CONV_TYPE_NUMB];
 
 int 			    ft_printf(const char *format, ...);
 
+int					ft_fprintf(const int fd, const char *format, ...);
+
 unsigned char		ordered_chech(const char *fstr);
 
 int                 ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar);
@@ -83,13 +84,13 @@ int     			ft_va_printf_ordered(const char *format,
 **	FLAG MANAGMENT
 */
 
-const char	*ftprt_set_fflags(t_printff *fl, const char *pos);
+const char			*ftprt_set_fflags(t_printff *fl, const char *pos);
 
-const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg);
+const char			*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg);
 
-const char	*ftprt_set_flen_flag(t_printff *fl, const char *pos);
+const char			*ftprt_set_flen_flag(t_printff *fl, const char *pos);
 
-const char   *ftprt_set_fprecision(t_printff *fl, const char *pos,
+const char   		*ftprt_set_fprecision(t_printff *fl, const char *pos,
 										  va_list *arg);
 
 const char		    *ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg);

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <fcntl.h>
 //#include <math.h>
 #include "../libftprintf/ft_printf.h"
 
@@ -145,6 +146,13 @@ int     main()
 	ft_printf("$= |%3$d %2$d %1$d|\n", 34534, 24, 464);
 
     //printf("|%*.0d|\n", -5, 123);
+
+	int f = open("../testfile.txt", O_WRONLY | O_CREAT);
+
+	ft_fprintf(f, "Hello\nThis is my file\nIt's fd is %d\n", f);
+	ft_fprintf(f, "I love doing shit like this!\n435=%u\n", 435);
+
+	close(f);
 
     return (0);
 }

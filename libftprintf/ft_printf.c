@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+#include "output_modules/ftprt_buffered_putchar.h"
 
 const t_type_proc	g_type_map[CONV_TYPE_NUMB] =
 		{
