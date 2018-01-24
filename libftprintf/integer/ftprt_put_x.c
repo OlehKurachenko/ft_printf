@@ -13,15 +13,15 @@ void        ftprt_put_x(t_printff *fl, va_list *arg,
          (fl->precision != 0) ? 1 : 0, fl->flags[4], 16);
     size_t              used_len;
 
-    fl->flags[0] = (val) ? fl->flags[0] : 0;
+    fl->flags[0] = (unsigned char)((val || fl->flags[6]) ? fl->flags[0] : 0);
     if (fl->precision != -1)
         fl->flags[1] = 0;
     else
-    if (fl->width > 0 && fl->flags[1])
-    {
-        fl->precision = fl->width - ((fl->flags[0]) ? 2 : 0);
-        fl->width = 0;
-    }
+		if (fl->width > 0 && fl->flags[1])
+		{
+			fl->precision = fl->width - ((fl->flags[0]) ? 2 : 0);
+			fl->width = 0;
+		}
     used_len = (fl->precision == -1 ||
 			(long long)len > fl->precision) ? len : fl->precision;
     used_len += (fl->flags[0]) ? 2 : 0;
