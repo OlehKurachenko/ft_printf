@@ -90,8 +90,9 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	char fstr[] = "|%1.0Le|\n"; //1.3
+	char fstr[] = "|%10s|\n"; //1.3
 	long double dv = 0.99; //0.99
+	char *n = NULL;
 	//int iii = 42342346
 	//int tempin = (int)dv;
 
@@ -118,8 +119,8 @@ int     main()
 
 	//char t = '1';
 
-    res_p = printf(fstr, dv);
-    res_ftp = ft_printf(fstr, dv);
+    res_p = printf(fstr, n);
+    res_ftp = ft_printf(fstr, n);
     printf("%d %d\n", res_p, res_ftp);
 
 //	t_time_t *time = construct_t_time_t_uf(1516457257);
@@ -140,27 +141,12 @@ int     main()
 	res_p = printf(fsrt2, dv2);
 	res_ftp = ft_printf(fsrt2, dv2);
 	printf("%d %d\n", res_p, res_ftp);
+//
+//	printf("%Lf -> %f\n", dv2, (double)dv2);
+//
+//	ft_printf("$= |%3$d %2$d %1$d|\n", 34534, 24, 464);
 
-	printf("%Lf -> %f\n", dv2, (double)dv2);
 
-	ft_printf("$= |%3$d %2$d %1$d|\n", 34534, 24, 464);
-
-    //printf("|%*.0d|\n", -5, 123);
-
-	int f = open("../testfile.txt", O_WRONLY | O_CREAT);
-
-	ft_fprintf(f, "Hello\nThis is my file\nIt's fd is %d\n", f);
-	ft_fprintf(f, "I love doing shit like this!\n435=%u\n", 435);
-
-	char *dstr;
-
-	ft_sprintf(&dstr, "Hello, %s, fd used was %d", "dear user", f);
-
-	ft_printf("|%s|", dstr);
-
-	free(dstr);
-
-	close(f);
 
     return (0);
 }

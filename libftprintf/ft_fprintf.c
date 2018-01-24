@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-#include "ftprt_buffered_putchar_fd.h"
+#include "output_modules/ftprt_buffered_putchar_fd.h"
 
 int					ft_fprintf(const int fd, const char *format, ...)
 {
