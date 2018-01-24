@@ -148,4 +148,4 @@ add_executable(ft_printf_clion
         libftprintf/ft_fprintf.c
         libftprintf/output_modules/ftprt_buffered_putchar_str.c
         libftprintf/output_modules/ftprt_buffered_putchar_str.h
-        libftprintf/ft_sprintf.c)
+        libftprintf/ft_sprintf.c libftprintf/character/ftprt_put_s_byval.c)

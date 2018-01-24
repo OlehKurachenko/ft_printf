@@ -90,7 +90,7 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	char fstr[] = "|%10s|\n"; //1.3
+	char fstr[] = "|%10.2S|\n"; //1.3
 	long double dv = 0.99; //0.99
 	char *n = NULL;
 	//int iii = 42342346

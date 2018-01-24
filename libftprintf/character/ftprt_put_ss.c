@@ -35,10 +35,12 @@ static void		put_wstring(t_printff *fl, va_list *arg, int *nptr,
 {
 	const unsigned int  *s = va_arg(*arg, unsigned int *);
 	size_t              num_wchars;
-	const size_t        prt_num = count_putput_len(s,
-		fl->precision, &num_wchars);
+	const size_t        prt_num = (s) ? count_putput_len(s,
+		fl->precision, &num_wchars) : 0;
 	size_t              i;
 
+	if (!s)
+		return (ftprt_put_s_byval(fl, ftprt_null_str, nptr, f_putchar));
 	if (prt_num < fl->width && !(fl->flags[2]))
 		ftprt_putnchar(' ', fl->width - prt_num, f_putchar);
 	i = 0;
@@ -59,6 +61,8 @@ static void        put_wstring_simple(t_printff *fl,
 	size_t          	len;
 	size_t          	i;
 
+	if (!s)
+		return (ftprt_put_s_byval(fl, ftprt_null_str, nptr, f_putchar));
 	len = (fl->precision == -1) ? wstrlen(s)
 		: ft_min_size_t(wstrlen(s), (size_t)fl->precision);
 	if (fl->width > len && !(fl->flags[2]))

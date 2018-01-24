@@ -41,6 +41,7 @@ SRC_N = integer/ftprt_highest_byte.c \
 		character/ftprt_putwchar.c \
 		character/ftprt_put_dblpercent.c \
 		character/ftprt_put_s.c \
+		character/ftprt_put_s_byval.c \
 		character/ftprt_put_ss.c \
 		character/ftprt_put_c.c \
 		character/ftprt_put_cc.c \

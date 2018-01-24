@@ -106,6 +106,8 @@ const char          *ftprt_set_type(t_printff *fl, const char *pos);
 
 static const long double	flt_inf = 1.0/0.0;
 
+static const char			ftprt_null_str[] = "(null)";
+
 void				ftprt_putstr(char const *s, t_putchar f_putchar);
 
 unsigned char       ftprt_highest_byte(size_t val);
@@ -119,6 +121,9 @@ void                ftprt_put_dblpercent(t_printff *fl, va_list *arg, int *nprt,
 
 void        		ftprt_put_s(t_printff *fl, va_list *arg, int *nptr,
 						t_putchar f_putchar);
+
+void				ftprt_put_s_byval(t_printff *const fl, const char *s, int *const nptr,
+						  t_putchar f_putchar);
 
 void            	ftprt_put_ss(t_printff *fl, va_list *arg, int *nptr,
 							 t_putchar f_putchar);
