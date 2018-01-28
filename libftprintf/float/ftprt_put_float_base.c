@@ -25,18 +25,21 @@ static void		put_prepoint_part(long double *const val,
 	 const unsigned char is_capital)
 {
 	long double			downstep;
+	size_t				cnt;
 
 	downstep = 1l;
+	cnt = 1;
 	while (*val / downstep >= base)
+	{
 		downstep *= base;
-	fl->flags[7] = 1;
-	while (*val >= 1l || fl->flags[7])
+		++cnt;
+	}
+	while (cnt--)
 	{
 		fl->ptchr(ftprt_getupdecimal((unsigned char)(*val / downstep),
 									  is_capital));
 		*val -= (uintmax_t)(*val/downstep) * downstep;
 		downstep /= base;
-		fl->flags[7] = 0;
 	}
 }
 

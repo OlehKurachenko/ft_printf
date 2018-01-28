@@ -136,8 +136,8 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv2 = 5.0299999l;
-	char fsrt2[] = ">|%Le|\n"; //.5
+	long double dv2 = 0.00;
+	char fsrt2[] = ">|%Lf|\n"; //.5
 
 	res_p = printf(fsrt2, dv2);
 	res_ftp = ft_printf(fsrt2, dv2);
