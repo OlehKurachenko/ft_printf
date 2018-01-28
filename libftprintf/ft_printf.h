@@ -208,7 +208,7 @@ void				ftprt_put_g(t_printff *const fl, va_list *const arg);
 
 void				ftprt_put_a(t_printff *const fl, va_list *const arg);
 
-static int 			ftprt_agetexpon(t_printff *const fl,
+int 				ftprt_agetexpon(t_printff *const fl,
 	long double val, long double *const n_form);
 
 #endif

@@ -2,7 +2,7 @@
 
 static const size_t 	infinite_loop_number = 1000;
 
-static size_t		normalize_val(int *const res,
+static size_t			normalize_val(int *const res,
 								   long double *const val)
 {
 	size_t	i;
@@ -22,7 +22,7 @@ static size_t		normalize_val(int *const res,
 	return (i);
 }
 
-static int 				ftprt_agetexpon(t_printff *const fl,
+int 					ftprt_agetexpon(t_printff *const fl,
 	long double val, long double *const n_form)
 {
 	int		res;
