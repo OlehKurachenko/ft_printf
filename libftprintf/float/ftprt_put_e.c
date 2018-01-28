@@ -1,6 +1,5 @@
 #include "../ft_printf.h"
 
-static const long long		e_type_deft_precision = 6;
 static const long double	e_type_base = 10l;
 
 static size_t				count_length(t_printff *const fl, const int expon)
@@ -9,8 +8,6 @@ static size_t				count_length(t_printff *const fl, const int expon)
 
 	res = 3 + ft_max_size_t(2,
 							ftprt_number_len(expon, 1, 0));
-	if (fl->precision == -1)
-		fl->precision = e_type_deft_precision;
 	if (fl->flags[6] || fl->flags[3] || fl->flags[5])
 		++res;
 	if (fl->precision || fl->flags[0])
