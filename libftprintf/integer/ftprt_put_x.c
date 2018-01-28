@@ -31,5 +31,5 @@ void ftprt_put_x(t_printff *const fl, va_list *const arg)
     if (used_len < fl->width && fl->flags[2])
         ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '),
                        fl->width - used_len);
-    fl->ptchr += ft_max_size_t(fl->width, used_len);
+    fl->count += ft_max_size_t(fl->width, used_len);
 }

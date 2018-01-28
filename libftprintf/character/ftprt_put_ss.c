@@ -12,7 +12,8 @@ static size_t   count_putput_len(const unsigned int *s, long long precision,
 	while (*s && (precision == -1 ||
 			precision >= (long long)size[ftprt_highest_byte(*s)]))
 	{
-		precision -= size[ftprt_highest_byte(*s)];
+		if (precision != -1)
+			precision -= size[ftprt_highest_byte(*s)];
 		res += size[ftprt_highest_byte(*s)];
 		++(*num_val);
 		++s;

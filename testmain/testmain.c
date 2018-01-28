@@ -90,7 +90,7 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	char fstr[] = "%"; //1.3
+	char fstr[] = "|%%|\n"; //1.3
 	long double dv = 0.99; //0.99
 	char *n = NULL;
 
@@ -137,10 +137,16 @@ int     main()
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
 	long double dv2 = 0.00;
-	char fsrt2[] = ">|%Lf|\n"; //.5
+	char fsrt2[] = ">|%p|\n"; //.5
 
-	res_p = printf(fsrt2, dv2);
-	res_ftp = ft_printf(fsrt2, dv2);
+	res_p = printf(fsrt2, &dv2);
+	res_ftp = ft_printf(fsrt2, &dv2);
+	printf("%d %d\n", res_p, res_ftp);
+
+	res_p = printf("%S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	printf("\n");
+	res_ftp = ft_printf("%S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	printf("\n");
 	printf("%d %d\n", res_p, res_ftp);
 //
 //	printf("%Lf -> %f\n", dv2, (double)dv2);
