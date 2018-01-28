@@ -143,9 +143,9 @@ int     main()
 	res_ftp = ft_printf(fsrt2, &dv2);
 	printf("%d %d\n", res_p, res_ftp);
 
-	res_p = printf("{%03s}", "c");
+	res_p = printf("{%3*p}", 10, 0);
 	printf("\n");
-	res_ftp = ft_printf("{%03c}", 0);
+	res_ftp = ft_printf("{%3*p}", 10, 0);
 	printf("\n");
 	printf("%d %d\n", res_p, res_ftp);
 //

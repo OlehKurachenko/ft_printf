@@ -4,7 +4,7 @@ const char      *ftprt_set_type(t_printff *const fl, const char *pos)
 {
 	const size_t	temp = (size_t)ft_strchr(types, *pos);
 
-	if (temp)
+	if (temp && temp != (size_t)types)
 		fl->type = (char)((temp - (size_t)types) / sizeof(char));
 	else
 	{
