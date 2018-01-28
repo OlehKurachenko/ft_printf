@@ -6,28 +6,27 @@ static const size_t	infinite_loop_number = 1000;
 **	Here, flag[6] will be used to show that number is < 0
 */
 
-static size_t		normalize_val(int *const res, const long double base,
+static size_t		normalize_val(int *const res,
 	long double *const val)
 {
 	size_t	i;
 
 	*res = 0;
-	while (*val >= base)
+	while (*val >= 10l)
 	{
-		*val /= base;
+		*val /= 10l;
 		++(*res);
 	}
 	i = 0;
 	while (*val < 1l && ++i < infinite_loop_number)
 	{
-		*val *= base;
+		*val *= 10l;
 		--(*res);
 	}
 	return (i);
 }
 
-int					ftprt_fgetexpon(t_printff *fl, long double val,
-	const long double base, long double *const val_normed)
+int ftprt_fgetexpon(t_printff *fl, long double val, long double *const val_normed)
 {
 	int		res;
 	size_t	i;
@@ -36,10 +35,10 @@ int					ftprt_fgetexpon(t_printff *fl, long double val,
 		fl->precision = 6;
 	if (val != val || val == flt_inf)
 		return (0);
-	i = normalize_val(&res, base, &val);
-	while ((val += 0.5l * ft_ldpow(1l / base, (size_t)fl->precision)) >= base)
+	i = normalize_val(&res, &val);
+	while ((val += 0.5l * ft_ldpow(0.1l, (size_t)fl->precision)) >= 10l)
 	{
-		val /= base;
+		val /= 10l;
 		++res;
 	}
 	if (val_normed)

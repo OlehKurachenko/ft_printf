@@ -171,8 +171,7 @@ void				ftprt_put_c_byval(t_printff *const fl, const char val);
 
 long double			ftprt_va_get_fvalue(t_printff *fl, va_list *arg);
 
-int					ftprt_fgetexpon(t_printff *fl, long double val,
-						   const long double base, long double *const val_normed);
+int ftprt_fgetexpon(t_printff *fl, long double val, long double *const val_normed);
 
 void				ftprt_put_e(t_printff *const fl, va_list *const arg);
 

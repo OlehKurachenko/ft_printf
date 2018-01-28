@@ -23,7 +23,7 @@ static void					call_e(t_printff *const fl, const long double val)
 {
 	long double			n_form;
 
-	ftprt_fgetexpon(fl, val, g_type_base, &n_form);
+	ftprt_fgetexpon(fl, val, &n_form);
 	if ((uintmax_t)n_form)
 		--fl->precision;
 	if (!fl->flags[0])
@@ -66,7 +66,7 @@ void ftprt_put_g(t_printff *const fl, va_list *const arg)
 		return ;
 	if (fl->precision == 0)
 		fl->precision = 1;
-	expon = ftprt_fgetexpon(fl, val, g_type_base, NULL);
+	expon = ftprt_fgetexpon(fl, val, NULL);
 	if (expon < -4 || expon >= fl->precision)
 		call_e(fl, val);
 	else

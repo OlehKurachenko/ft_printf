@@ -18,7 +18,7 @@ static size_t				count_length(t_printff *const fl, const int expon)
 void ftprt_put_e_byvalue(t_printff *const fl, const long double val)
 {
 	long double			n_form;
-	const int			expon = ftprt_fgetexpon(fl, val, e_type_base, &n_form);
+	const int			expon = ftprt_fgetexpon(fl, val, &n_form);
 	const size_t 		len = count_length(fl, expon);
 
 	if (ftprt_handle_nans(fl, val))
