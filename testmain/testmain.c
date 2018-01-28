@@ -143,9 +143,9 @@ int     main()
 	res_ftp = ft_printf(fsrt2, &dv2);
 	printf("%d %d\n", res_p, res_ftp);
 
-	res_p = printf("%S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	res_p = printf("{%03s}", "c");
 	printf("\n");
-	res_ftp = ft_printf("%S", L"ÊM-M-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	res_ftp = ft_printf("{%03c}", 0);
 	printf("\n");
 	printf("%d %d\n", res_p, res_ftp);
 //

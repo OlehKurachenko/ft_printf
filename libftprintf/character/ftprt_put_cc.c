@@ -14,7 +14,7 @@ static void		put_wchar(t_printff *const fl, va_list *const arg)
 	const size_t	len = count_wchar_t_len(c);
 
 	if (len < fl->width && !(fl->flags[2]))
-		ftprt_putnchar(fl, ' ', fl->width - len);
+		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '), fl->width - len);
 	ftprt_putwchar(fl, (unsigned int)c);
 	if (len < fl->width && (fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - len);
@@ -26,7 +26,7 @@ static void        put_wchar_simple(t_printff *const fl, va_list *const arg)
 	const wchar_t	c = va_arg(*arg, wchar_t);
 
 	if (fl->width && !(fl->flags[2]))
-		ftprt_putnchar(fl, ' ', fl->width - 1);
+		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '), fl->width - 1);
 	fl->ptchr((char)c);
 	if (fl->width && (fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - 1);

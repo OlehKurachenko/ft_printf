@@ -3,7 +3,7 @@
 void		ftprt_put_c_byval(t_printff *const fl, const char val)
 {
 	if (fl->width && !(fl->flags[2]))
-		ftprt_putnchar(fl, ' ', fl->width - 1);
+		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '), fl->width - 1);
 	fl->ptchr(val);
 	if (fl->width && (fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - 1);

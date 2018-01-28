@@ -12,7 +12,7 @@ void		ftprt_put_c(t_printff *const fl, va_list *const arg)
 	}
 	c = (char)va_arg(*arg, int);
 	if (fl->width && !(fl->flags[2]))
-		ftprt_putnchar(fl, ' ', fl->width - 1);
+		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '), fl->width - 1);
 	fl->ptchr(c);
 	if (fl->width && (fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - 1);
