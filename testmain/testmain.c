@@ -136,11 +136,11 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv2 = 0.00;
-	char fsrt2[] = ">|%p|\n"; //.5
+	double dv2 = (0.25 + (0.25 / 8)) * 32;
+	char fsrt2[] = ">|%A|\n"; //.5
 
-	res_p = printf(fsrt2, &dv2);
-	res_ftp = ft_printf(fsrt2, &dv2);
+	res_p = printf(fsrt2, dv2);
+	res_ftp = ft_printf(fsrt2, dv2);
 	printf("%d %d\n", res_p, res_ftp);
 
 	res_p = printf("{%3*p}", 10, 0);

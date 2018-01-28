@@ -31,7 +31,7 @@ static size_t		get_byte_len(const t_printff *const fl)
 
 void				ftprt_put_b(t_printff *const fl, va_list *const arg)
 {
-	uintmax_t 		val;
+	uintmax_t		val;
 	const size_t	byte_len = get_byte_len(fl);
 	uintmax_t		downpow;
 
@@ -39,7 +39,8 @@ void				ftprt_put_b(t_printff *const fl, va_list *const arg)
 	if (8 * byte_len < fl->width && (!fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - 8 * byte_len);
 	downpow = (uintmax_t)1 << (8 * byte_len - 1);
-	while (downpow) {
+	while (downpow)
+	{
 		fl->ptchr((char)('0' + val / downpow));
 		val %= downpow;
 		downpow >>= 1;

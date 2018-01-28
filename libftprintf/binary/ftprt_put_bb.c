@@ -31,7 +31,8 @@ void				ftprt_put_bb(t_printff *const fl, va_list *const arg)
 	size_t				i;
 	const size_t		prec = (size_t)((fl->precision < 0)
 		? (-fl->precision) : fl->precision);
-	const size_t		len = 8 * prec + ((fl->flags[4] && prec) ? prec - 1 : 0);
+	const size_t		len = 8 * prec
+		+ ((fl->flags[4] && prec) ? prec - 1 : 0);
 
 	if (len < fl->width && (!fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - len);
