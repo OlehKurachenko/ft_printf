@@ -1,7 +1,6 @@
 #include "ft_printf.h"
 
-static void				put_va_value(t_printff *const fl, va_list *const arg,
-	t_putchar f_putchar, int *const res)
+static void				put_va_value(t_printff *const fl, va_list *const arg)
 {
 	va_list			va_tmp;
 	short unsigned	i;
@@ -13,30 +12,30 @@ static void				put_va_value(t_printff *const fl, va_list *const arg,
 		va_arg(va_tmp, long long unsigned);
 		++i;
 	}
-	g_type_map[(size_t)fl->type](fl, &va_tmp, res, f_putchar);
+	g_type_map[(size_t)fl->type](fl, &va_tmp);
 }
 
-int     				ft_va_printf_ordered(const char *format,
-	va_list *arg, t_putchar f_putchar)
+int     				ft_va_printf_ordered(const char *const format,
+	va_list *const arg, t_putchar f_putchar)
 {
 	t_printff		fl;
 	const char      *pos = format;
-	int             res;
 
-	res = 0;
+	fl.ptchr = f_putchar;
+	fl.count = 0;
 	while (*pos)
 	{
 		pos = ftprt_set_flags_ordered(&fl, pos, arg);
 		if (fl.type == -1)
 		{
 			f_putchar(*(pos++));
-			++res;
+			++fl.count;
 		}
 		else
 			if (fl.type != CONV_TYPE_NUMB && fl.arg != 0)
-				put_va_value(&fl, arg, f_putchar, &res);
+				put_va_value(&fl, arg);
 		if (fl.type != -1 && !fl.arg)
-			return (res);
+			return (fl.count);
 	}
-	return (res);
+	return (fl.count);
 }

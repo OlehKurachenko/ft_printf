@@ -1,24 +1,6 @@
 #include "../ft_printf.h"
 
-static void					put_nan(t_printff *fl, unsigned char isNan, t_putchar f_putchar)
-{
-	if (isNan)
-	{
-		// TODO revrite this shit
-		f_putchar((char)((fl->type % 2 == 1) ? 'n' : 'N'));
-		f_putchar((char)((fl->type % 2 == 1) ? 'a' : 'A'));
-		f_putchar((char)((fl->type % 2 == 1) ? 'n' : 'N'));
-	}
-	else
-	{
-		f_putchar((char)((fl->type % 2 == 1) ? 'i' : 'I'));
-		f_putchar((char)((fl->type % 2 == 1) ? 'n' : 'N'));
-		f_putchar((char)((fl->type % 2 == 1) ? 'f' : 'F'));
-	}
-}
-
-unsigned char		ftprt_handle_nans(t_printff *fl,
-	const long double val, int *nptr, t_putchar f_putchar)
+unsigned char ftprt_handle_nans(t_printff *const fl, const long double val)
 {
 	size_t	len;
 
@@ -27,15 +9,18 @@ unsigned char		ftprt_handle_nans(t_printff *fl,
 	len = (val == flt_inf && ((fl->flags[6]) || (!fl->flags[6]
 		&& (fl->flags[3] || fl->flags[5])))) ? 4 : 3;
 	if (len < fl->width && !fl->flags[2])
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
+		ftprt_putnchar(fl, ' ', fl->width - len);
 	if (val == flt_inf && fl->flags[6])
-		f_putchar('-');
+		fl->ptchr('-');
 	else
 		if ((fl->flags[3] || fl->flags[5]) && val == flt_inf && !fl->flags[6])
-			f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
-	put_nan(fl, (unsigned char)(val != val), f_putchar);
+			fl->ptchr((char)((fl->flags[3]) ? ' ' : '+'));
+	if (fl->type % 2 == 1)
+		ftprt_putstr(fl, (val != val) ? "nan" : "inf");
+	else
+		ftprt_putstr(fl, (val != val) ? "NAN" : "INF");
 	if (len < fl->width && fl->flags[2])
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
-	*nptr += ft_max_size_t(len, fl->width);
+		ftprt_putnchar(fl, ' ', fl->width - len);
+	fl->count += ft_max_size_t(len, fl->width);
 	return (1);
 }

@@ -1,7 +1,7 @@
 #include "../ft_printf.h"
 
 static size_t   count_putput_len(const unsigned int *s, long long precision,
-								 size_t *num_val)
+								 size_t *const num_val)
 {
 	static size_t   size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
 								3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
@@ -20,7 +20,7 @@ static size_t   count_putput_len(const unsigned int *s, long long precision,
 	return (res);
 }
 
-static size_t	wstrlen(const unsigned int *s)
+static size_t	wstrlen(const unsigned int *const s)
 {
 	size_t	result;
 
@@ -30,8 +30,7 @@ static size_t	wstrlen(const unsigned int *s)
 	return (result);
 }
 
-static void		put_wstring(t_printff *fl, va_list *arg, int *nptr,
-						 t_putchar f_putchar)
+static void		put_wstring(t_printff *const fl, va_list *const arg)
 {
 	const unsigned int  *s = va_arg(*arg, unsigned int *);
 	size_t              num_wchars;
@@ -40,49 +39,47 @@ static void		put_wstring(t_printff *fl, va_list *arg, int *nptr,
 	size_t              i;
 
 	if (!s)
-		return (ftprt_put_s_byval(fl, ftprt_null_str, nptr, f_putchar));
+		return (ftprt_put_s_byval(fl, ftprt_null_str));
 	if (prt_num < fl->width && !(fl->flags[2]))
-		ftprt_putnchar(' ', fl->width - prt_num, f_putchar);
+		ftprt_putnchar(fl, ' ', fl->width - prt_num);
 	i = 0;
 	while (i < num_wchars)
 	{
-		ftprt_putwchar(s[i], f_putchar);
+		ftprt_putwchar(fl, s[i]);
 		++i;
 	}
 	if (prt_num < fl->width && (fl->flags[2]))
-		ftprt_putnchar(' ', fl->width - prt_num, f_putchar);
-	*nptr += (prt_num > fl->width) ? prt_num : fl->width;
+		ftprt_putnchar(fl, ' ', fl->width - prt_num);
+	fl->count += (prt_num > fl->width) ? prt_num : fl->width;
 }
 
-static void        put_wstring_simple(t_printff *fl,
-		va_list *arg, int *nptr, t_putchar f_putchar)
+static void        put_wstring_simple(t_printff *const fl, va_list *const arg)
 {
 	const unsigned int  *s = va_arg(*arg, unsigned int *);
 	size_t          	len;
 	size_t          	i;
 
 	if (!s)
-		return (ftprt_put_s_byval(fl, ftprt_null_str, nptr, f_putchar));
+		return (ftprt_put_s_byval(fl, ftprt_null_str));
 	len = (fl->precision == -1) ? wstrlen(s)
 		: ft_min_size_t(wstrlen(s), (size_t)fl->precision);
 	if (fl->width > len && !(fl->flags[2]))
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
+		ftprt_putnchar(fl, ' ', fl->width - len);
 	i = 0;
 	while (i < len)
 	{
-		f_putchar((char)s[i]);
+		fl->ptchr((char)s[i]);
 		++i;
 	}
 	if (fl->width > len && (fl->flags[2]))
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
-	*nptr += (fl->width > len) ? fl->width : len;
+		ftprt_putnchar(fl, ' ', fl->width - len);
+	fl->count += (fl->width > len) ? fl->width : len;
 }
 
-void			ftprt_put_ss(t_printff *fl, va_list *arg, int *nptr,
-							 t_putchar f_putchar)
+void			ftprt_put_ss(t_printff *const fl, va_list *const arg)
 {
 	if (MB_CUR_MAX == 4)
-		put_wstring(fl, arg, nptr, f_putchar);
+		put_wstring(fl, arg);
 	else
-		put_wstring_simple(fl, arg, nptr, f_putchar);
+		put_wstring_simple(fl, arg);
 }

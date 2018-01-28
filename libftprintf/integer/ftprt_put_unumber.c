@@ -1,13 +1,12 @@
 #include "../ft_printf.h"
 
-static void ftprt_put_unumber_apo(uintmax_t val, size_t len, t_printff *fl,
-                                 t_putchar f_putchar)
+static void		ftprt_put_unumber_apo(uintmax_t val, size_t len, t_printff *const fl)
 {
     uintmax_t   pw;
     size_t      delim_c;
 
     if (fl->precision != -1 && (fl->precision > (long long)len))
-        ftprt_putnchar('0', fl->precision - len, f_putchar);
+        ftprt_putnchar(fl, '0', fl->precision - len);
     if (val || fl->precision != 0)
     {
         pw = 1;
@@ -16,24 +15,23 @@ static void ftprt_put_unumber_apo(uintmax_t val, size_t len, t_printff *fl,
             pw *= 10;
         while (pw)
         {
-            f_putchar((char)('0' + val / pw));
+            fl->ptchr((char)('0' + val / pw));
             if (delim_c && (delim_c-- % 3 == 0))
-                f_putchar(',');
+                fl->ptchr(',');
             val %= pw;
             pw /= 10;
         }
     }
 }
 
-void        ftprt_put_unumber(uintmax_t val, size_t len, t_printff *fl,
-							 t_putchar f_putchar)
+void			ftprt_put_unumber(uintmax_t val, size_t len, t_printff *const fl)
 {
 	uintmax_t pw;
 
     if (fl->flags[4])
-        return (ftprt_put_unumber_apo(val, len, fl, f_putchar));
+        return (ftprt_put_unumber_apo(val, len, fl));
 	if (fl->precision != -1 && (fl->precision > (long long)len))
-		ftprt_putnchar('0', fl->precision - len, f_putchar);
+		ftprt_putnchar(fl, '0', fl->precision - len);
 	if (val || fl->precision != 0)
 	{
 		pw = 1;
@@ -41,7 +39,7 @@ void        ftprt_put_unumber(uintmax_t val, size_t len, t_printff *fl,
 			pw *= 10;
 		while (pw)
 		{
-			f_putchar((char)('0' + val / pw));
+			fl->ptchr((char)('0' + val / pw));
 			val %= pw;
 			pw /= 10;
 		}

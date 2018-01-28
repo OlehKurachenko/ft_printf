@@ -1,10 +1,10 @@
 #include "../ft_printf.h"
 
-void		ftprt_putstr(char const *s, t_putchar f_putchar)
+void		ftprt_putstr(t_printff *const fl, char const *s)
 {
 	while (*s)
 	{
-		f_putchar(*s);
+		fl->ptchr(*s);
 		++s;
 	}
 }

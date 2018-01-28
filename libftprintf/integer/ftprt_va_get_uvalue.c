@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-uintmax_t    ftprt_va_get_uvalue(t_printff *fl, va_list *arg)
+uintmax_t    ftprt_va_get_uvalue(t_printff *const fl, va_list *const arg)
 {
     if (fl->len_flag == 0)
         return (va_arg(*arg, unsigned long long));

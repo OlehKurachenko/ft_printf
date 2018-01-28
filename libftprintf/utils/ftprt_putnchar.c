@@ -1,7 +1,7 @@
 #include "../ft_printf.h"
 
-void        ftprt_putnchar(char c, size_t n, t_putchar f_putchar)
+void        ftprt_putnchar(t_printff *const fl, char c, size_t n)
 {
     while (n-- > 0)
-        f_putchar(c);
+        fl->ptchr(c);
 }

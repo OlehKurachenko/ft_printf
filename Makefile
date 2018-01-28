@@ -45,6 +45,7 @@ SRC_N = integer/ftprt_highest_byte.c \
 		character/ftprt_put_ss.c \
 		character/ftprt_put_c.c \
 		character/ftprt_put_cc.c \
+		character/ftprt_put_c_byval.c \
 		float/ftprt_put_e.c \
 		float/ftprt_va_get_fvalue.c \
 		float/ftprt_fgetexpon.c \

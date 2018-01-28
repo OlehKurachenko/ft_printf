@@ -64,36 +64,34 @@ static int 					agetexpon(t_printff *const fl,
 	return ((i == infinite_loop_number) ? 0 : res);
 }
 
-static void					put_sign_block(t_printff *const fl,
-	t_putchar f_putchar)
+static void					put_sign_block(t_printff *const fl)
 {
-	ftprt_put_sign(fl, f_putchar);
-	f_putchar('0');
-	f_putchar((char)((fl->type == 29) ? 'x' : 'X'));
+	ftprt_put_sign(fl);
+	fl->ptchr('0');
+	fl->ptchr((char)((fl->type == 29) ? 'x' : 'X'));
 }
 
-void						ftprt_put_a(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar)
+void ftprt_put_a(t_printff *const fl, va_list *const arg)
 {
 	const long double	v = ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg));
 	long double			n_form;
 	const int			expon = agetexpon(fl, v, &n_form);
 	const size_t 		len = count_length(fl, n_form, expon);
 
-	if (ftprt_handle_nans(fl, v, nptr, f_putchar))
+	if (ftprt_handle_nans(fl, v))
 		return ;
 	if (fl->flags[1])
-		put_sign_block(fl, f_putchar);
-	if (len < fl->width && (!fl->flags[2])) ftprt_putnchar(
-		(char)((fl->flags[1]) ? '0' : ' '), fl->width - len, f_putchar);
+		put_sign_block(fl);
+	if (len < fl->width && (!fl->flags[2])) ftprt_putnchar(fl,
+		(char)((fl->flags[1]) ? '0' : ' '), fl->width - len);
 	if (!fl->flags[1])
-		put_sign_block(fl, f_putchar);
-	ftprt_put_float_base(n_form, 16l, fl, f_putchar);
-	f_putchar((char)((fl->type == 29) ? 'p' : 'P'));
-	f_putchar((char)((expon >= 0) ? '+' : '-'));
-	ftprt_put_unumber_smpl((uintmax_t)((expon >= 0)
-			? expon : -expon), f_putchar);
+		put_sign_block(fl);
+	ftprt_put_float_base(n_form, 16l, fl);
+	fl->ptchr((char)((fl->type == 29) ? 'p' : 'P'));
+	fl->ptchr((char)((expon >= 0) ? '+' : '-'));
+	ftprt_put_unumber_smpl(fl, (uintmax_t)((expon >= 0)
+			? expon : -expon));
 	if (len < fl->width && fl->flags[2])
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
-	*nptr += ft_max_size_t(len, fl->width);
+		ftprt_putnchar(fl, ' ', fl->width - len);
+	fl->count += ft_max_size_t(len, fl->width);
 }

@@ -1,7 +1,6 @@
 #include "../ft_printf.h"
 
-void				ftprt_put_r(t_printff *fl, va_list *arg,
-								 int *nprt, t_putchar f_putchar)
+void				ftprt_put_r(t_printff *const fl, va_list *const arg)
 {
 	const unsigned char	*addr = va_arg(*arg, unsigned char *);
 	size_t				i;
@@ -10,19 +9,19 @@ void				ftprt_put_r(t_printff *fl, va_list *arg,
 	const size_t		len = 2 * prec + ((fl->flags[4] && prec) ? prec - 1 : 0);
 
 	if (len < fl->width && (!fl->flags[2]))
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
+		ftprt_putnchar(fl, ' ', fl->width - len);
 	i = 0;
 	while (i < prec)
 	{
-		f_putchar(ftprt_getupdecimal((unsigned char)(addr[i] / 16),
+		fl->ptchr(ftprt_getupdecimal((unsigned char)(addr[i] / 16),
 			(unsigned char)(fl->type == 25)));
-		f_putchar(ftprt_getupdecimal((unsigned char)(addr[i] % 16),
+		fl->ptchr(ftprt_getupdecimal((unsigned char)(addr[i] % 16),
 			(unsigned char)(fl->type == 25)));
 		++i;
 		if (fl->flags[4] && i != prec)
-			f_putchar('.');
+			fl->ptchr('.');
 	}
 	if (len < fl->width && fl->flags[2])
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
-	*nprt += ft_max_size_t(len, fl->width);
+		ftprt_putnchar(fl, ' ', fl->width - len);
+	fl->count += ft_max_size_t(len, fl->width);
 }

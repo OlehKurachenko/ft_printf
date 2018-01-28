@@ -29,31 +29,27 @@ static size_t 				count_length(t_printff *const fl, long double val)
 	return (res + fl->precision);
 }
 
-void						ftprt_put_f_byvalue(t_printff *const fl,
-	const long double val, int *const nprt, t_putchar f_putchar)
+void ftprt_put_f_byvalue(t_printff *const fl, const long double val)
 {
 	const size_t 		len = count_length(fl, val);
 
-	if (ftprt_handle_nans(fl, val, nprt, f_putchar))
+	if (ftprt_handle_nans(fl, val))
 		return ;
 	if (fl->flags[1])
-		ftprt_put_sign(fl, f_putchar);
+		ftprt_put_sign(fl);
 	if (len < fl->width && (!fl->flags[2]))
-		ftprt_putnchar((char)((fl->flags[1]) ? '0' : ' '),
-					   fl->width - len, f_putchar);
+		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '),
+					   fl->width - len);
 	if (!fl->flags[1])
-		ftprt_put_sign(fl, f_putchar);
+		ftprt_put_sign(fl);
 	ftprt_put_float_base(val + 0.5l * ft_ldpow(1l / f_type_base,
-		(size_t)fl->precision), f_type_base, fl, f_putchar);
+		(size_t) fl->precision), f_type_base, fl);
 	if (len < fl->width && fl->flags[2])
-		ftprt_putnchar(' ', fl->width - len, f_putchar);
-	;
-	*nprt += ft_max_size_t(fl->width, len);
+		ftprt_putnchar(fl, ' ', fl->width - len);
+	fl->count += ft_max_size_t(fl->width, len);
 }
 
-void						ftprt_put_f(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar)
+void ftprt_put_f(t_printff *const fl, va_list *const arg)
 {
-	ftprt_put_f_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)),
-						nptr, f_putchar);
+	ftprt_put_f_byvalue(fl, ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg)));
 }

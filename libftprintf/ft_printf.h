@@ -45,7 +45,7 @@
 **
 */
 
-typedef void		(*const t_putchar)(char);
+typedef void		(*t_putchar)(char);
 
 typedef struct	    s_printff
 {
@@ -55,13 +55,15 @@ typedef struct	    s_printff
 	int				len_flag;
 	char			type;
 	short unsigned	arg;
+	int 			count;
+	t_putchar		ptchr;
 }				    t_printff;
 
 /*
 **  TYPE MAP
 */
 
-typedef void        (*t_type_proc)(t_printff *,va_list *, int *, t_putchar);
+typedef void        (*const t_type_proc)(t_printff *const, va_list *const);
 
 static const char   types[CONV_TYPE_NUMB + 1]
 	= "%sSpdDioOuUxXcCeEfFnkKbBrRGgAa";
@@ -76,7 +78,8 @@ int					ft_sprintf(const char **const str, const char *format, ...);
 
 unsigned char		ordered_chech(const char *fstr);
 
-int                 ft_va_printf(const char *format, va_list *arg, t_putchar f_putchar);
+int                 ft_va_printf(const char *format, va_list *arg,
+	t_putchar f_putchar);
 
 int     			ft_va_printf_ordered(const char *format,
 	va_list *arg, t_putchar f_putchar);
@@ -98,7 +101,7 @@ const char		    *ftprt_set_flags(t_printff *fl, const char *pos, va_list *arg);
 
 const char			*ftprt_set_flags_ordered(t_printff *fl, const char *pos, va_list *arg);
 
-const char          *ftprt_set_type(t_printff *fl, const char *pos);
+const char          *ftprt_set_type(t_printff *const fl, const char *pos);
 
 /*
 **  OUTPUT SECTION
@@ -108,131 +111,102 @@ static const long double	flt_inf = 1.0/0.0;
 
 static const char			ftprt_null_str[] = "(null)";
 
-void				ftprt_putstr(char const *s, t_putchar f_putchar);
+void				ftprt_putstr(t_printff *const fl, char const *s);
 
 unsigned char       ftprt_highest_byte(size_t val);
 
-size_t              ftprt_putwchar(unsigned int c, t_putchar f_putchar);
+size_t              ftprt_putwchar(t_printff *const fl, unsigned int c);
 
-void                ftprt_putnchar(char c, size_t n, t_putchar f_putchar);
+void                ftprt_putnchar(t_printff *const fl, char c, size_t n);
 
-void                ftprt_put_dblpercent(t_printff *fl, va_list *arg, int *nprt,
-										 t_putchar f_putchar);
+void                ftprt_put_dblpercent(t_printff *const fl, va_list *const arg);
 
-void        		ftprt_put_s(t_printff *fl, va_list *arg, int *nptr,
-						t_putchar f_putchar);
+void        		ftprt_put_s(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_s_byval(t_printff *const fl, const char *s, int *const nptr,
-						  t_putchar f_putchar);
+void				ftprt_put_s_byval(t_printff *const fl, const char *const s);
 
-void            	ftprt_put_ss(t_printff *fl, va_list *arg, int *nptr,
-							 t_putchar f_putchar);
+void            	ftprt_put_ss(t_printff *const fl, va_list *const arg);
 
 unsigned char       ftprt_number_len(intmax_t val, unsigned char zero_to_one,
 									 unsigned char is_apo);
-void                ftprt_put_number(intmax_t val, size_t len, t_printff *fl,
-							 t_putchar f_putchar);
+void				ftprt_put_number(intmax_t val, size_t len, t_printff *const fl);
 
-void                ftprt_put_d(t_printff *fl, va_list *arg,
-								int *nprt, t_putchar f_putchar);
+void				ftprt_put_d(t_printff *const fl, va_list *const arg);
 
-void        		ftprt_put_dd(t_printff *fl, va_list *arg,
-						 int *nprt, t_putchar f_putchar);
+void				ftprt_put_dd(t_printff *const fl, va_list *const arg);
 
-uintmax_t           ftprt_va_get_uvalue(t_printff *fl, va_list *arg);
+uintmax_t           ftprt_va_get_uvalue(t_printff *const fl, va_list *const arg);
 
 unsigned char       ftprt_unumber_len(uintmax_t val, unsigned char zero_to_one,
 									  unsigned char is_apo);
 
-void        		ftprt_put_unumber(uintmax_t val, size_t len, t_printff *fl,
-							  t_putchar f_putchar);
+void				ftprt_put_unumber(uintmax_t val, size_t len, t_printff *const fl);
 
-void                ftprt_put_u(t_printff *fl, va_list *arg,
-						int *nprt, t_putchar f_putchar);
+void				ftprt_put_u(t_printff *const fl, va_list *const arg);
 
-void                ftprt_put_uu(t_printff *fl, va_list *arg,
-						 int *nprt, t_putchar f_putchar);
+void				ftprt_put_uu(t_printff *const fl, va_list *const arg);
 
 char                ftprt_getupdecimal(unsigned char digit, unsigned char is_big);
 
 unsigned char       ftprt_unumber_baselen(uintmax_t val, unsigned char zero_to_one,
 	 unsigned char is_apo, unsigned char base);
 
-void                ftprt_put_xnumber(uintmax_t val, size_t len,
-										  t_printff *fl, t_putchar f_putchar);
+void				ftprt_put_xnumber(uintmax_t val, size_t len, t_printff *const fl);
 
-void                ftprt_put_x(t_printff *fl, va_list *arg,
-						int *nprt, t_putchar f_putchar);
+void				ftprt_put_x(t_printff *const fl, va_list *const arg);
 
-void    			ftprt_put_p(t_printff *fl, va_list *arg,
-					int *nprt, t_putchar f_putchar);
+void				ftprt_put_p(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_onumber(uintmax_t val, size_t len,
-										  t_printff *fl, t_putchar f_putchar);
+void				ftprt_put_onumber(uintmax_t val, size_t len, t_printff *const fl);
 
-void				ftprt_put_o(t_printff *fl, va_list *arg, int *nptr,
-						t_putchar f_putchar);
+void				ftprt_put_o(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_oo(t_printff *fl, va_list *arg, int *nprt,
-						 t_putchar f_putchar);
+void				ftprt_put_oo(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_c(t_printff *fl, va_list *arg, int *nprt,
-						t_putchar f_putchar);
+void				ftprt_put_c(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_cc(t_printff *fl, va_list *arg,
-								 int *nprt, t_putchar f_putchar);
+void				ftprt_put_cc(t_printff *const fl, va_list *const arg);
+
+void				ftprt_put_c_byval(t_printff *const fl, const char val);
 
 long double			ftprt_va_get_fvalue(t_printff *fl, va_list *arg);
 
-int		ftprt_fgetexpon(t_printff *fl, long double val,
+int					ftprt_fgetexpon(t_printff *fl, long double val,
 						   const long double base, long double *const val_normed);
 
-void				ftprt_put_e(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar);
+void				ftprt_put_e(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_float_base(long double val, const long double base,
-	t_printff *const fl, t_putchar f_putchar);
+void				ftprt_put_float_base(long double val, const long double base, t_printff *const fl);
 
-void				ftprt_put_unumber_smpl(uintmax_t val, t_putchar f_putchar);
+void				ftprt_put_unumber_smpl(t_printff *const fl, uintmax_t val);
 
-void				ftprt_put_f(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar);
+void				ftprt_put_f(t_printff *const fl, va_list *const arg);
 
-unsigned char		ftprt_handle_nans(t_printff *fl,
-	const long double val, int *nptr, t_putchar f_putchar);
+unsigned char		ftprt_handle_nans(t_printff *const fl,
+	const long double val);
 
-void				ftprt_put_sign(t_printff *const fl, t_putchar f_putchar);
+void				ftprt_put_sign(t_printff *const fl);
 
 long double			ftprt_set_fsign(t_printff *const fl, long double val);
 
-void				ftprt_put_n(t_printff *fl, va_list *arg,
-								int *nprt, t_putchar f_putchar);
+void				ftprt_put_n(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_k(t_printff *fl, va_list *arg,
-								int *nprt, t_putchar f_putchar);
+void				ftprt_put_k(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_kk(t_printff *fl, va_list *arg,
-								 int *nprt, t_putchar f_putchar);
+void				ftprt_put_kk(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_b(t_printff *fl, va_list *arg,
-								int *nprt, t_putchar f_putchar);
+void				ftprt_put_b(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_bb(t_printff *fl, va_list *arg,
-								 int *nprt, t_putchar f_putchar);
+void				ftprt_put_bb(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_r(t_printff *fl, va_list *arg,
-								int *nprt, t_putchar f_putchar);
+void				ftprt_put_r(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_f_byvalue(t_printff *const fl,
-	const long double val, int *const nprt, t_putchar f_putchar);
+void				ftprt_put_f_byvalue(t_printff *const fl, const long double val);
 
-void				ftprt_put_e_byvalue(t_printff *const fl,
-	const long double val, int *const nprt, t_putchar f_putchar);
+void				ftprt_put_e_byvalue(t_printff *const fl, const long double val);
 
-void				ftprt_put_g(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar);
+void				ftprt_put_g(t_printff *const fl, va_list *const arg);
 
-void				ftprt_put_a(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar);
+void				ftprt_put_a(t_printff *const fl, va_list *const arg);
 
 #endif

@@ -90,7 +90,7 @@ int     main()
 //    char fstr[] = "|% 12llu|\n";
 //    unsigned long long ivalue = 1234567;
 
-	char fstr[] = "|% Test Zoo|\n"; //1.3
+	char fstr[] = "%"; //1.3
 	long double dv = 0.99; //0.99
 	char *n = NULL;
 
@@ -136,8 +136,8 @@ int     main()
 //	ft_printf("|%100lb|\n", tb);
 //	ft_printf("|%'100.*lR|\n", sizeof(tb), &tb);
 
-	long double dv2 = 3434543553453453345346345345645534534645634454.354453453l;
-	char fsrt2[] = ">|%LA|\n"; //.5
+	long double dv2 = 5.0299999l;
+	char fsrt2[] = ">|%Le|\n"; //.5
 
 	res_p = printf(fsrt2, dv2);
 	res_ftp = ft_printf(fsrt2, dv2);

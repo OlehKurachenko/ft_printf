@@ -1,10 +1,10 @@
 #include "../ft_printf.h"
 
-void		ftprt_put_sign(t_printff *const fl, t_putchar f_putchar)
+void ftprt_put_sign(t_printff *const fl)
 {
 	if (fl->flags[6])
-		f_putchar('-');
+		fl->ptchr('-');
 	else
 		if (fl->flags[3] || fl->flags[5])
-			f_putchar((char)((fl->flags[3]) ? ' ' : '+'));
+			fl->ptchr((char)((fl->flags[3]) ? ' ' : '+'));
 }

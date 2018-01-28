@@ -19,8 +19,7 @@ static size_t				count_ef_precision(t_printff *const fl, long double n_form)
 	return (top_len);
 }
 
-static void					call_e(t_printff *const fl, const long double val,
-	int *nprt, t_putchar f_putchar)
+static void					call_e(t_printff *const fl, const long double val)
 {
 	long double			n_form;
 
@@ -30,11 +29,10 @@ static void					call_e(t_printff *const fl, const long double val,
 	if (!fl->flags[0])
 		fl->precision = (long long int)count_ef_precision(fl, n_form);
 	fl->type = (char)((fl->type == 27) ? 15 : 16);
-	ftprt_put_e_byvalue(fl, val, nprt, f_putchar);
+	ftprt_put_e_byvalue(fl, val);
 }
 
-static void					call_f(t_printff *const fl, const long double val,
-	int *nprt, t_putchar f_putchar)
+static void					call_f(t_printff *const fl, const long double val)
 {
 	long double		tval;
 	long double		downpow;
@@ -56,23 +54,22 @@ static void					call_f(t_printff *const fl, const long double val,
 	if (!fl->flags[0])
 		fl->precision = (long long int)count_ef_precision(fl, tval);
 	fl->type = (char)((fl->type == 27) ? 17 : 18);
-	ftprt_put_f_byvalue(fl, val, nprt, f_putchar);
+	ftprt_put_f_byvalue(fl, val);
 }
 
-void						ftprt_put_g(t_printff *fl, va_list *arg,
-	int *nptr, t_putchar f_putchar)
+void ftprt_put_g(t_printff *const fl, va_list *const arg)
 {
 	const long double	val = ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg));
 	int 				expon = ftprt_fgetexpon(fl, val, g_type_base, NULL);
 
-	if (ftprt_handle_nans(fl, val, nptr, f_putchar))
+	if (ftprt_handle_nans(fl, val))
 		return ;
 	if (fl->precision == -1)
 		fl->precision = 6;
 	if (fl->precision == 0)
 		fl->precision = 1;
 	if (expon < -4 || expon >= fl->precision)
-		call_e(fl, val, nptr, f_putchar);
+		call_e(fl, val);
 	else
-		call_f(fl, val, nptr, f_putchar);
+		call_f(fl, val);
 }

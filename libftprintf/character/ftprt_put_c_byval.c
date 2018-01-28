@@ -1,19 +1,10 @@
 #include "../ft_printf.h"
 
-void		ftprt_put_c(t_printff *const fl, va_list *const arg)
+void		ftprt_put_c_byval(t_printff *const fl, const char val)
 {
-	char      c;
-
-	if (fl->len_flag == 1)
-	{
-		fl->type = 13;
-		ftprt_put_cc(fl, arg);
-		return ;
-	}
-	c = (char)va_arg(*arg, int);
 	if (fl->width && !(fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - 1);
-	fl->ptchr(c);
+	fl->ptchr(val);
 	if (fl->width && (fl->flags[2]))
 		ftprt_putnchar(fl, ' ', fl->width - 1);
 	fl->count += (fl->width) ? fl->width : 1;
