@@ -31,10 +31,11 @@ int ftprt_fgetexpon(t_printff *fl, long double val, long double *const val_norme
 	int		res;
 	size_t	i;
 
-	if (fl->precision == -1)
-		fl->precision = 6;
+
 	if (val != val || val == flt_inf)
 		return (0);
+	if (fl->precision == -1)
+		fl->precision = 6;
 	i = normalize_val(&res, &val);
 	while ((val += 0.5l * ft_ldpow(0.1l, (size_t)fl->precision)) >= 10l)
 	{

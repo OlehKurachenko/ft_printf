@@ -1,7 +1,5 @@
 #include "../ft_printf.h"
 
-static const size_t infinite_loop_number = 100000;
-
 static size_t				count_unloss_length(long double n_form)
 {
 	size_t		res;
@@ -34,36 +32,6 @@ static size_t				count_length(t_printff *const fl,
 	return (res + fl->precision);
 }
 
-static int 					agetexpon(t_printff *const fl,
-										long double val, long double *const n_form)
-{
-	int		res;
-	size_t	i;
-
-	if (val != val || val == flt_inf)
-		return (0);
-	res = 0;
-	while (val >= 16l)
-	{
-		val /= 2l;
-		++res;
-	}
-	i = 0;
-	while (val < 8l && ++i < infinite_loop_number)
-	{
-		val *= 2l;
-		--res;
-	}
-	while ((val += 0.5l * ft_ldpow(1l / 16l, (size_t)fl->precision)) >= 16l)
-	{
-		val /= 2l;
-		++res;
-	}
-	if (n_form)
-		*n_form = val;
-	return ((i == infinite_loop_number) ? 0 : res);
-}
-
 static void					put_sign_block(t_printff *const fl)
 {
 	ftprt_put_sign(fl);
@@ -75,7 +43,7 @@ void ftprt_put_a(t_printff *const fl, va_list *const arg)
 {
 	const long double	v = ftprt_set_fsign(fl, ftprt_va_get_fvalue(fl, arg));
 	long double			n_form;
-	const int			expon = agetexpon(fl, v, &n_form);
+	const int			expon = ftprt_agetexpon(fl, v, &n_form);
 	const size_t 		len = count_length(fl, n_form, expon);
 
 	if (ftprt_handle_nans(fl, v))

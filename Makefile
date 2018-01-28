@@ -56,6 +56,7 @@ SRC_N = integer/ftprt_highest_byte.c \
 		float/ftprt_set_fsign.c \
 		float/ftprt_put_g.c \
 		float/ftprt_put_a.c \
+		float/ftprt_agetexpon.c \
 		utils/ftprt_getupdecimal.c \
 		utils/ftprt_putstr.c \
 		utils/ftprt_put_unumber_smpl.c \
