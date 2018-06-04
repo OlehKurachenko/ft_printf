@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_buffered_putchar_str.h                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/30 10:57:49 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/30 10:57:49 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_CLION_FTPRT_BUFFERED_PUTCHAR_STR_H
 # define FT_PRINTF_CLION_FTPRT_BUFFERED_PUTCHAR_STR_H
 

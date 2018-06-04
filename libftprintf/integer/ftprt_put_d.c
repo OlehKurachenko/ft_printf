@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_put_d.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 16:30:23 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 16:30:26 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-static intmax_t    get_value(t_printff *fl, va_list *arg)
+static intmax_t		get_value(t_printff *fl, va_list *arg)
 {
 	if (fl->len_flag == 0)
 		return (va_arg(*arg, long long));
@@ -22,21 +34,19 @@ static intmax_t    get_value(t_printff *fl, va_list *arg)
 **  width-to-precision delegation flag
 */
 
-void ftprt_put_d(t_printff *const fl, va_list *const arg)
+void				ftprt_put_d(t_printff *const fl, va_list *const arg)
 {
 	const intmax_t		val = get_value(fl, arg);
-	const size_t		len = ftprt_number_len(val,
-		(unsigned char)((fl->precision != 0) ? 1 : 0), fl->flags[4]);
-	size_t              used_len;
+	const size_t		len = ftprt_nlen(val, fl->prec != 0, fl->flags[4]);
+	size_t				used_len;
 
-	if (fl->precision != -1)
+	if (fl->prec != -1)
 		fl->flags[1] = 0;
-	else
-		if (fl->width > 0 && fl->flags[1])
-			fl->precision = (long long int)(fl->width - (val < 0 || fl->flags[3]
+	else if (fl->width > 0 && fl->flags[1])
+		fl->prec = (long long int)(fl->width - (val < 0 || fl->flags[3]
 			|| fl->flags[5]));
-	used_len = (fl->precision == -1 || len > (long long unsigned)fl->precision)
-			   ? len : (size_t)fl->precision;
+	used_len = (fl->prec == -1 || len > (long long unsigned)fl->prec)
+		? len : (size_t)fl->prec;
 	if (val < 0 || fl->flags[3] || fl->flags[5])
 		++used_len;
 	if (used_len < fl->width && (!fl->flags[2]))

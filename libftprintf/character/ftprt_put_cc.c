@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_put_cc.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 15:31:23 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 15:31:24 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-static size_t   count_wchar_t_len(wchar_t c)
+static size_t	count_wchar_t_len(wchar_t c)
 {
-	static size_t   size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
-			3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
+	static size_t	size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
+		3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
 
-	return (size[ftprt_highest_byte((size_t) c)]);
+	return (size[ftprt_highest_byte((size_t)c)]);
 }
 
 static void		put_wchar(t_printff *const fl, va_list *const arg)
@@ -21,7 +33,7 @@ static void		put_wchar(t_printff *const fl, va_list *const arg)
 	fl->count += (len > fl->width) ? len : fl->width;
 }
 
-static void        put_wchar_simple(t_printff *const fl, va_list *const arg)
+static void		put_wchar_simple(t_printff *const fl, va_list *const arg)
 {
 	const wchar_t	c = va_arg(*arg, wchar_t);
 
@@ -33,7 +45,8 @@ static void        put_wchar_simple(t_printff *const fl, va_list *const arg)
 	fl->count += (fl->width) ? fl->width : 1;
 }
 
-void				ftprt_put_cc(t_printff *const fl, va_list *const arg) {
+void			ftprt_put_cc(t_printff *const fl, va_list *const arg)
+{
 	if (MB_CUR_MAX == 4)
 		put_wchar(fl, arg);
 	else

@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_putnchar.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/30 11:03:53 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/30 11:03:54 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-void        ftprt_putnchar(t_printff *const fl, char c, size_t n)
+void	ftprt_putnchar(t_printff *const fl, char c, size_t n)
 {
-    while (n-- > 0)
-        fl->ptchr(c);
+	while (n-- > 0)
+		fl->ptchr(c);
 }

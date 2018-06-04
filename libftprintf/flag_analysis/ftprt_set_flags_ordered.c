@@ -1,20 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_set_flags_ordered.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 16:02:11 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 16:02:12 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 const char	*set_index(const char *pos, t_printff *const fl)
 {
-	unsigned short res;
+	unsigned short	res;
 
 	res = 0;
 	while (ft_isdigit(*pos))
 	{
-		res = (unsigned short) (res * 10 + *pos - '0');
+		res = (unsigned short)(res * 10 + *pos - '0');
 		++pos;
 	}
 	fl->arg = (unsigned short)((*pos == '$') ? res : 0);
 	return (pos + 1);
 }
 
-const char	*ftprt_set_flags_ordered(t_printff *fl, const char *pos, va_list *arg)
+const char	*ftprt_set_flags_ordered(t_printff *fl,
+	const char *pos, va_list *arg)
 {
 	if (*pos != '%')
 	{

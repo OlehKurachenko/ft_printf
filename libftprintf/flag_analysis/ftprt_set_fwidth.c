@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_set_fwidth.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 16:02:46 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 16:02:47 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 /*
 ** fl->len_flag used as temporary variable
 */
+
 const char	*ftprt_set_fwidth(t_printff *fl, const char *pos, va_list *arg)
 {
 	fl->width = 0;

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_put_s.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 15:31:40 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 15:31:41 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-void        ftprt_put_s(t_printff *const fl, va_list *const arg)
+void		ftprt_put_s(t_printff *const fl, va_list *const arg)
 {
-	const char      *s;
+	const char	*s;
 
 	if (fl->len_flag == 1)
 	{
@@ -12,6 +24,6 @@ void        ftprt_put_s(t_printff *const fl, va_list *const arg)
 	}
 	s = va_arg(*arg, const char *);
 	if (!s)
-		s = ftprt_null_str;
-    ftprt_put_s_byval(fl, s);
+		s = g_ftprt_null_str;
+	ftprt_put_s_byval(fl, s);
 }

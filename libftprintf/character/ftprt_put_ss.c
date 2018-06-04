@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftprt_put_ss.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 15:31:50 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 15:31:51 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-static size_t   count_putput_len(const unsigned int *s, long long precision,
-								 size_t *const num_val)
+static size_t	cnt_ln(const unsigned int *s, long long precision,
+						size_t *const num_val)
 {
-	static size_t   size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
-								3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
-	size_t          res;
+	static size_t	size[24] = {1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2,
+		3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4};
+	size_t			res;
 
 	res = 0;
 	*num_val = 0;
@@ -33,14 +45,13 @@ static size_t	wstrlen(const unsigned int *const s)
 
 static void		put_wstring(t_printff *const fl, va_list *const arg)
 {
-	const unsigned int  *s = va_arg(*arg, unsigned int *);
-	size_t              num_wchars;
-	const size_t        prt_num = (s) ? count_putput_len(s,
-		fl->precision, &num_wchars) : 0;
-	size_t              i;
+	const unsigned int	*s = va_arg(*arg, unsigned int *);
+	size_t				num_wchars;
+	const size_t		prt_num = (s) ? cnt_ln(s, fl->prec, &num_wchars) : 0;
+	size_t				i;
 
 	if (!s)
-		return (ftprt_put_s_byval(fl, ftprt_null_str));
+		return (ftprt_put_s_byval(fl, g_ftprt_null_str));
 	if (prt_num < fl->width && !(fl->flags[2]))
 		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '),
 		fl->width - prt_num);
@@ -55,16 +66,16 @@ static void		put_wstring(t_printff *const fl, va_list *const arg)
 	fl->count += (prt_num > fl->width) ? prt_num : fl->width;
 }
 
-static void        put_wstring_simple(t_printff *const fl, va_list *const arg)
+static void		put_wstring_simple(t_printff *const fl, va_list *const arg)
 {
-	const unsigned int  *s = va_arg(*arg, unsigned int *);
-	size_t          	len;
-	size_t          	i;
+	const unsigned int	*s = va_arg(*arg, unsigned int *);
+	size_t				len;
+	size_t				i;
 
 	if (!s)
-		return (ftprt_put_s_byval(fl, ftprt_null_str));
-	len = (fl->precision == -1) ? wstrlen(s)
-		: ft_min_size_t(wstrlen(s), (size_t)fl->precision);
+		return (ftprt_put_s_byval(fl, g_ftprt_null_str));
+	len = (fl->prec == -1) ? wstrlen(s)
+		: ft_min_size_t(wstrlen(s), (size_t)fl->prec);
 	if (fl->width > len && !(fl->flags[2]))
 		ftprt_putnchar(fl, (char)((fl->flags[1]) ? '0' : ' '), fl->width - len);
 	i = 0;

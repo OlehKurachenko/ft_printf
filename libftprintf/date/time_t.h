@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   time_t.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/28 15:51:26 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 15:51:28 by okurache         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_CLION_TIME_T_H
 # define FT_PRINTF_CLION_TIME_T_H
 
@@ -21,4 +33,4 @@ void			destruct_t_time_t(const t_time_t **const ptr_t_time_t);
 
 void			destruct_const_t_time_t(const t_time_t *const ptr_t_time_t);
 
-# endif
+#endif

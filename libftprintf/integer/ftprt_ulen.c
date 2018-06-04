@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ldpow.c                                         :+:      :+:    :+:   */
+/*   ftprt_ulen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okurache <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/30 11:45:56 by okurache          #+#    #+#             */
-/*   Updated: 2018/01/30 11:45:57 by okurache         ###   ########.fr       */
+/*   Created: 2018/01/28 16:32:28 by okurache          #+#    #+#             */
+/*   Updated: 2018/01/28 16:32:29 by okurache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-long double		ft_ldpow(long double val, size_t pow)
+unsigned char	ftprt_ulen(uintmax_t val, unsigned char zero_to_one,
+	unsigned char is_apo)
 {
-	long double		res;
+	unsigned char	res;
 
-	res = 1l;
-	while (pow)
+	if (val == 0)
+		return (zero_to_one);
+	res = 0;
+	while (val != 0)
 	{
-		if (pow & 1)
-		{
-			res *= val;
-		}
-		val *= val;
-		pow >>= 1;
+		++res;
+		val /= 10;
 	}
+	if (is_apo)
+		return ((unsigned char)(res + (res - 1) / 3));
 	return (res);
 }
