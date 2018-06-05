@@ -1,2 +1,6 @@
 cmake-build-debug/**
 .idea/**
+imports/**
+.c3pm_clonedir/**
+src/exports/obj/**
+src/exports/libftprintf.a
